@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EDITING AS BRAIN SCIENCE. — Flip The Bird</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Shippori+Mincho:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* =====================================================
    EDITING AS BRAIN SCIENCE. — Flip The Bird
@@ -74,10 +74,11 @@ html{scroll-behavior:smooth}
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:'Space Grotesk','Noto Sans JP',sans-serif;
-  font-size:15px;
-  line-height:1.8;
-  letter-spacing:.01em;
+  font-family:'Shippori Mincho B1','Shippori Mincho','Noto Serif JP',serif;
+  font-size:16px;
+  line-height:2.1;
+  letter-spacing:.06em;
+  font-weight:400;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   /* フィルムグレイン */
@@ -177,8 +178,8 @@ body{
 }
 .ch-title{
   font-family:'Bebas Neue',cursive;
-  font-size:clamp(48px,7vw,96px);
-  line-height:.88;letter-spacing:.02em;
+  font-size:clamp(52px,8vw,108px);
+  line-height:.86;letter-spacing:.02em;
   margin-bottom:20px;color:var(--text);
   position:relative;display:block;
 }
@@ -190,10 +191,11 @@ body{
   background:var(--grad-main);
 }
 .ch-sub{
-  font-size:14px;font-weight:300;color:var(--text-2);
-  line-height:1.75;margin-bottom:48px;
+  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-size:15.5px;font-weight:400;color:var(--text-2);
+  line-height:2.1;margin-bottom:48px;
   padding-bottom:28px;border-bottom:1px solid var(--border);
-  letter-spacing:.02em;
+  letter-spacing:.06em;
 }
 
 /* ─────────────────────────────────────
@@ -248,7 +250,7 @@ body{
 }
 .hero-kv{
   font-family:'Bebas Neue',cursive;
-  font-size:clamp(64px,11vw,140px);
+  font-size:clamp(68px,12vw,148px);
   line-height:.82;letter-spacing:.015em;
   color:var(--text);margin-bottom:2px;
 }
@@ -271,8 +273,9 @@ body{
   color:var(--accent);border-color:var(--accent-b);
 }
 .hero-desc{
-  font-size:14px;font-weight:300;color:var(--text-2);
-  max-width:440px;line-height:2;letter-spacing:.02em;
+  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-size:16px;font-weight:400;color:var(--text-2);
+  max-width:440px;line-height:2.2;letter-spacing:.06em;letter-spacing:.02em;
 }
 
 /* ─────────────────────────────────────
@@ -302,7 +305,7 @@ body{
   color:rgba(232,197,71,.05);pointer-events:none;user-select:none;
 }
 .toc-card:hover{background:var(--bg-3)}
-.toc-card:hover .toc-name{color:var(--accent)}
+.toc-card:hover .toc-name{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:var(--text-2);line-height:1.4;margin-top:12px;transition:color .15s}
 .toc-num{
   font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.16em;
   color:var(--accent);
@@ -325,11 +328,11 @@ body{
 .sec-dark .card,.sec-dark2 .card{background:var(--bg-3)}
 .sec-dark .card:hover,.sec-dark2 .card:hover{background:var(--bg-3)}
 .card-title{
-  font-size:13px;font-weight:600;color:var(--text);
+  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-size:16px;font-weight:700;letter-spacing:.14em;color:var(--text);
   margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border);
-  letter-spacing:.02em;
 }
-.card-body{font-size:13px;color:var(--text-2);line-height:1.8}
+.card-body{font-size:15.5px;font-weight:400;color:var(--text-2);line-height:2.1}
 .card-icon{font-size:18px;margin-bottom:8px;display:block}
 
 /* ─────────────────────────────────────
@@ -340,7 +343,7 @@ body{
   border:1px solid var(--border-2);
   border-left:2px solid var(--accent);
   border-radius:0 var(--r-sm) var(--r-sm) 0;
-  margin:20px 0;font-size:14px;color:var(--text-2);line-height:1.9;
+  margin:20px 0;font-size:15.5px;font-weight:400;color:var(--text-2);line-height:2.1;
 }
 .highlight strong{color:var(--text)}
 .highlight.highlight-danger{border-left-color:var(--danger);background:rgba(232,68,68,.05)}
@@ -371,7 +374,7 @@ thead th{
 tbody tr{border-bottom:1px solid var(--border)}
 tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:var(--bg-3)}
-tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
+tbody td{padding:13px 16px;font-size:15px;font-weight:500;color:var(--text-2);vertical-align:top}
 
 /* ─────────────────────────────────────
    CHECKLIST
@@ -379,7 +382,7 @@ tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 .checklist{list-style:none;display:flex;flex-direction:column;gap:8px}
 .checklist li{
   display:flex;align-items:flex-start;gap:12px;
-  font-size:13.5px;color:var(--text-2);line-height:1.7;
+  font-size:15px;font-weight:500;color:var(--text-2);line-height:1.9;
   padding:12px 16px;background:var(--bg-3);
   border:1px solid var(--border);border-radius:var(--r-sm);
 }
@@ -408,22 +411,22 @@ tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 .brain-card:hover{background:var(--bg-4)}
 .brain-card.amygdala{border-top:2px solid var(--danger)}
 .brain-card-title{
-  font-size:13px;font-weight:600;color:var(--text);
+  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-size:17px;font-weight:700;letter-spacing:.14em;color:var(--text);
   margin-bottom:10px;padding-bottom:10px;
   border-bottom:1px solid var(--border);
-  letter-spacing:.02em;
 }
-.brain-card p{font-size:13px;color:var(--text-2);line-height:1.88}
+.brain-card p{font-size:15.5px;font-weight:400;color:var(--text-2);line-height:2.1}
 .brain-card strong{color:var(--text)}
 /* アコーディオン型brain-card */
 .brain-trigger{width:100%;background:none;border:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;text-align:left}
 .brain-icon{width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:var(--r-sm);background:var(--bg-4);border:1px solid var(--border-2);font-size:16px}
-.brain-name{font-size:13px;font-weight:600;color:var(--text);letter-spacing:.02em}
+.brain-name{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-size:16px;font-weight:700;letter-spacing:.14em;color:var(--text)}
 .brain-tag{font-family:'DM Mono',monospace;font-size:9px;color:var(--text-3);margin-top:2px;letter-spacing:.08em}
 .brain-chevron{width:16px;height:16px;margin-left:auto;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text-3);transition:transform .2s}
 .brain-chevron svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2}
 .brain-card.open .brain-chevron{transform:rotate(180deg)}
-.brain-body{display:none;padding:0 20px 18px;font-size:13px;color:var(--text-2);line-height:1.88;border-top:1px solid var(--border);padding-top:16px}
+.brain-body{display:none;padding:0 20px 18px;font-size:15.5px;font-weight:400;font-weight:400;color:var(--text-2);line-height:2.1;border-top:1px solid var(--border);padding-top:16px}
 .brain-card.open .brain-body{display:block}
 
 /* ─────────────────────────────────────
@@ -433,12 +436,12 @@ tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 .acc-item{background:var(--bg-3);transition:background .15s}
 .acc-item.open{background:var(--bg-4)}
 .acc-trigger{width:100%;background:none;border:none;cursor:pointer;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
-.acc-q{font-size:13.5px;font-weight:500;color:var(--text-2);line-height:1.5;letter-spacing:.01em}
+.acc-q{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-size:16px;font-weight:600;letter-spacing:.1em;color:var(--text-2);line-height:1.4}
 .acc-item.open .acc-q{color:var(--text)}
 .acc-icon{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text-3)}
 .acc-icon svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .2s}
 .acc-item.open .acc-icon svg{transform:rotate(180deg);stroke:var(--accent)}
-.acc-body{display:none;padding:0 20px 16px;font-size:13.5px;color:var(--text-2);line-height:1.88}
+.acc-body{display:none;padding:0 20px 16px;font-size:15.5px;font-weight:400;font-weight:400;color:var(--text-2);line-height:2.1}
 .acc-item.open .acc-body{display:block}
 
 /* ─────────────────────────────────────
@@ -460,10 +463,11 @@ tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 }
 .wf-content{padding-bottom:28px}
 .wf-title{
-  font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px;
-  display:flex;align-items:center;gap:12px;padding-top:12px;letter-spacing:.01em;
+  font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  font-size:16px;font-weight:700;letter-spacing:.12em;color:var(--text);margin-bottom:6px;
+  display:flex;align-items:center;gap:12px;padding-top:12px;
 }
-.wf-body{font-size:13.5px;color:var(--text-2);line-height:1.9}
+.wf-body{font-size:15.5px;font-weight:400;color:var(--text-2);line-height:2.1}
 
 /* WF アコーディオン詳細 */
 .wf-detail{
@@ -493,8 +497,8 @@ tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 }
 .engine-card:hover{background:var(--bg-4)}
 .engine-num{font-family:'Bebas Neue',cursive;font-size:48px;color:rgba(232,197,71,.12);line-height:1;margin-bottom:4px}
-.engine-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px;letter-spacing:.02em}
-.engine-body{font-size:13px;color:var(--text-2);line-height:1.8}
+.engine-title{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-size:17px;font-weight:700;letter-spacing:.14em;color:var(--text);margin-bottom:8px}
+.engine-body{font-size:15.5px;font-weight:400;color:var(--text-2);line-height:2.1}
 .engine-example{margin-top:12px;padding:9px 14px;background:rgba(232,197,71,.06);border-left:2px solid var(--accent);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:12px;color:var(--accent)}
 
 /* ─────────────────────────────────────
@@ -505,7 +509,7 @@ tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 .angle-card:hover{background:var(--bg-4)}
 .angle-icon{font-size:20px;margin-bottom:8px;display:block}
 .angle-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;letter-spacing:.02em}
-.angle-desc{font-size:11px;color:var(--text-3);line-height:1.6}
+.angle-desc{font-size:13.5px;font-weight:400;color:var(--text-3);line-height:1.8}
 
 /* ─────────────────────────────────────
    CHARACTER LIST
@@ -514,7 +518,7 @@ tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 .char-item{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:var(--bg-3);transition:background .15s}
 .char-item:hover{background:var(--bg-4)}
 .char-badge{min-width:72px;text-align:center;padding:3px 8px;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1px solid;border-radius:2px;flex-shrink:0;font-family:'DM Mono',monospace}
-.char-body{font-size:13.5px;color:var(--text-2);line-height:1.75}
+.char-body{font-size:15.5px;font-weight:400;color:var(--text-2);line-height:2.1}
 
 /* ─────────────────────────────────────
    TELOP DEMO
@@ -544,8 +548,8 @@ tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 .insert-card{background:var(--bg-3);padding:18px;transition:background .15s}
 .insert-card:hover{background:var(--bg-4)}
 .insert-type{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.insert-title{font-weight:600;font-size:14px;color:var(--text);margin-bottom:6px;letter-spacing:.01em}
-.insert-body{font-size:12.5px;color:var(--text-2);line-height:1.8}
+.insert-title{font-family:'Shippori Mincho B1','Shippori Mincho',serif;font-weight:700;font-size:16px;letter-spacing:.12em;color:var(--text);margin-bottom:6px}
+.insert-body{font-size:15.5px;font-weight:400;color:var(--text-2);line-height:2.1}
 
 /* ─────────────────────────────────────
    BADGE
@@ -1629,7 +1633,7 @@ footer{
         <div style="width:8px;height:8px;border-radius:50%;background:var(--ok)"></div>
         <span style="font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--text-3);margin-left:6px">REAL SEQUENCE — Flip The Bird</span>
       </div>
-      <img src="sequence.png" alt="Premiere Pro シーケンス構成例 — Flip The Bird" style="width:100%;display:block">
+      <img src="https://drive.google.com/uc?export=view&id=1BrX_S31yzH2uLxImDYcMOFIE1xfeKCON" alt="Premiere Pro シーケンス構成例 — Flip The Bird" style="width:100%;display:block" onerror="this.style.padding='40px';this.style.textAlign='center';this.style.color='var(--text-3)';this.style.background='var(--bg-3)';this.alt='画像を読み込めませんでした（Google Driveの共有設定を「リンクを知っている全員」に変更してください）'">
       <div style="padding:12px 16px;background:var(--bg-3);border-top:1px solid var(--border)">
         <p style="font-size:12px;color:var(--text-2);line-height:1.8">V1〜V8（映像）+ A1〜A6（音声）のフルトラック構成。このシーケンスを見るだけで、どこが単調かが一目でわかる。</p>
       </div>
