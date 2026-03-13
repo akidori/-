@@ -14,78 +14,82 @@
 <style>
 /* =====================================================
    EDITING AS BRAIN SCIENCE. — Flip The Bird
-   Design v6 — Light Social UI
-   テーマ: Instagram Light × X Light × 水色〜青グラデーション
+   Design v7 — DARK EDITORIAL / FILM BIBLE
+   コンセプト: ドキュメンタリー制作会社の内部バイブル
+   暗室、フィルム、手書きノート、荒削りな本物感
    ===================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 :root{
-  /* ── Light Base (Instagram/X light) ── */
-  --bg:        #ffffff;
-  --bg-2:      #fafafa;
-  --bg-3:      #f3f4f6;
-  --bg-4:      #eef0f3;
-  --bg-5:      #e8eaed;
-  --border:    #e4e6eb;
-  --border-2:  #d0d3da;
+  /* ── Dark Film Palette ── */
+  --bg:        #0d0d0f;
+  --bg-2:      #111114;
+  --bg-3:      #18181c;
+  --bg-4:      #1e1e24;
+  --bg-5:      #252530;
+  --border:    rgba(255,255,255,.08);
+  --border-2:  rgba(255,255,255,.14);
+  --border-3:  rgba(255,255,255,.22);
 
   /* ── Text ── */
-  --text:      #0f1419;
-  --text-2:    #536471;
-  --text-3:    #8b98a5;
-  --text-inv:  #ffffff;
+  --text:      #f0ede8;
+  --text-2:    #9d9a94;
+  --text-3:    #5a5754;
+  --text-inv:  #0d0d0f;
 
-  /* ── Instagram Gradient Palette (水色〜青メイン) ── */
-  --blue:      #1877f2;   /* Facebook/Meta blue */
-  --sky:       #38bdf8;   /* sky blue */
-  --indigo:    #6366f1;   /* indigo */
-  --violet:    #8b5cf6;   /* violet */
-  --pink:      #ec4899;   /* Instagram pink */
-  --orange:    #f97316;   /* warm orange (旧accent) */
+  /* ── Accent: 映画フィルムのような電球オレンジ〜赤 ── */
+  --accent:    #e8c547;   /* フィルム・アンバー */
+  --accent-d:  #c4a030;
+  --accent-l:  rgba(232,197,71,.08);
+  --accent-b:  rgba(232,197,71,.2);
 
-  /* ── Primary accent: 水色〜青 ── */
-  --accent:    #0ea5e9;   /* sky-500 — メインアクセント */
-  --accent-d:  #0284c7;   /* darker */
-  --accent-l:  rgba(14,165,233,.09);
-  --accent-b:  rgba(14,165,233,.22);
+  /* ── Secondary ── */
+  --red:       #e84444;
+  --cyan:      #4ecdc4;
+  --blue:      #4a9eff;
+  --green:     #4ade80;
 
   /* ── Gradient tokens ── */
-  --grad-ig:   linear-gradient(135deg,#38bdf8 0%,#6366f1 45%,#ec4899 100%);
-  --grad-blue: linear-gradient(135deg,#0ea5e9 0%,#6366f1 100%);
-  --grad-warm: linear-gradient(135deg,#f97316 0%,#ec4899 100%);
+  --grad-main: linear-gradient(135deg,#e8c547 0%,#e87c2a 100%);
+  --grad-film: linear-gradient(135deg,#e84444 0%,#e8c547 50%,#4ecdc4 100%);
+  --grad-cool: linear-gradient(135deg,#4a9eff 0%,#4ecdc4 100%);
 
   /* ── Semantic ── */
-  --warn:      #f59e0b;
-  --danger:    #ef4444;
-  --ok:        #10b981;
+  --warn:      #e8c547;
+  --danger:    #e84444;
+  --ok:        #4ade80;
 
   /* ── Radius ── */
-  --r:         12px;
-  --r-sm:      8px;
-  --r-lg:      16px;
+  --r:         4px;
+  --r-sm:      2px;
+  --r-lg:      8px;
   --r-full:    9999px;
 }
 
 /* ── RESET ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
-button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:'Inter','Noto Sans JP',sans-serif;
+  font-family:'Space Grotesk','Noto Sans JP',sans-serif;
   font-size:15px;
   line-height:1.8;
   letter-spacing:.01em;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  /* フィルムグレイン */
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
 /* ─────────────────────────────────────
    TOP BAR
 ───────────────────────────────────── */
 .film-header{
-  background:rgba(255,255,255,.92);
+  background:rgba(13,13,15,.95);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
   height:52px;
@@ -94,22 +98,26 @@ body{
   position:sticky;top:0;z-index:300;
 }
 .film-header::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--grad-ig);opacity:.6;
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:var(--grad-film);opacity:.5;
 }
 .perf-strip{display:none}
-.film-title-bar{flex:1;display:flex;align-items:center;padding:0 24px;gap:12px}
+.film-title-bar{flex:1;display:flex;align-items:center;padding:0 24px;gap:14px}
 .film-brand{
   font-family:'Bebas Neue',cursive;
-  font-size:17px;letter-spacing:.18em;
-  background:var(--grad-blue);
+  font-size:17px;letter-spacing:.22em;
+  background:var(--grad-main);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.film-sub{font-size:10px;font-weight:600;color:var(--text-3);letter-spacing:.14em;text-transform:uppercase}
+.film-sub{
+  font-family:'DM Mono',monospace;
+  font-size:9px;font-weight:400;color:var(--text-3);letter-spacing:.18em;text-transform:uppercase;
+}
 .film-ver{
-  font-size:10px;font-weight:600;color:var(--text-3);
+  font-family:'DM Mono',monospace;
+  font-size:9px;color:var(--text-3);
   margin-left:auto;border:1px solid var(--border-2);
-  padding:2px 10px;border-radius:var(--r-full);background:var(--bg-3);
+  padding:3px 10px;border-radius:2px;background:var(--bg-3);letter-spacing:.1em;
 }
 
 /* ─────────────────────────────────────
@@ -117,7 +125,7 @@ body{
 ───────────────────────────────────── */
 .nav{
   position:sticky;top:52px;z-index:200;
-  background:rgba(255,255,255,.92);
+  background:rgba(13,13,15,.96);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
@@ -128,29 +136,26 @@ body{
 }
 .nav-inner::-webkit-scrollbar{display:none}
 .nav-item{
-  font-family:'Inter','Noto Sans JP',sans-serif;
-  font-size:12px;font-weight:600;letter-spacing:.01em;
+  font-family:'DM Mono',monospace;
+  font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
   color:var(--text-3);padding:0 14px;white-space:nowrap;
   text-decoration:none;display:flex;align-items:center;
-  border-bottom:2px solid transparent;margin-bottom:-1px;
-  transition:color .15s;min-height:44px;
+  border-bottom:1px solid transparent;margin-bottom:-1px;
+  transition:color .15s,border-color .15s;min-height:40px;
 }
-.nav-item:hover{color:var(--text);background:var(--bg-3)}
+.nav-item:hover{color:var(--text)}
 .nav-item.active{color:var(--accent);border-bottom-color:var(--accent)}
 .nav-divider{width:1px;background:var(--border);flex-shrink:0;margin:10px 0}
 
 /* ─────────────────────────────────────
    LAYOUT
 ───────────────────────────────────── */
-.sec      {padding:72px 0;background:var(--bg)}
-.sec-alt  {padding:72px 0;background:var(--bg-2)}
+.sec      {padding:80px 0;background:var(--bg)}
+.sec-alt  {padding:80px 0;background:var(--bg-3)}
 .sec-dark {padding:80px 0;background:var(--bg-3)}
-.sec-dark2{padding:80px 0;background:var(--bg-2)}
-/* セクション間の区切り */
-.sec + .sec-dark,.sec + .sec-dark2,
-.sec-alt + .sec-dark,.sec-alt + .sec-dark2{border-top:1px solid var(--border)}
-.sec-dark + .sec,.sec-dark + .sec-alt,
-.sec-dark2 + .sec,.sec-dark2 + .sec-alt{border-top:1px solid var(--border)}
+.sec-dark2{padding:80px 0;background:var(--bg-3)}
+.sec + .sec-dark,.sec + .sec-dark2,.sec-alt + .sec-dark,.sec-alt + .sec-dark2,
+.sec-dark + .sec,.sec-dark + .sec-alt,.sec-dark2 + .sec,.sec-dark2 + .sec-alt{border-top:1px solid var(--border)}
 .container{max-width:860px;margin:0 auto;padding:0 24px}
 .container-wide{max-width:1100px;margin:0 auto;padding:0 24px}
 
@@ -158,38 +163,37 @@ body{
    CHAPTER HEADER
 ───────────────────────────────────── */
 .ch-label{
-  font-family:'Inter',sans-serif;
-  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:6px;
-  padding:4px 12px;margin-bottom:14px;
-  border-radius:var(--r-full);
-  background:var(--accent-l);
+  font-family:'DM Mono',monospace;
+  font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:4px 12px;margin-bottom:20px;
+  border-radius:2px;
+  background:transparent;
   color:var(--accent);
   border:1px solid var(--accent-b);
 }
-.sec-dark .ch-label,.sec-dark2 .ch-label{
-  background:rgba(14,165,233,.08);
-  color:var(--accent-d);
+.ch-label::before{
+  content:'';width:16px;height:1px;background:var(--accent);display:block;flex-shrink:0;
 }
 .ch-title{
   font-family:'Bebas Neue',cursive;
-  font-size:clamp(36px,6vw,72px);
-  line-height:.92;letter-spacing:.02em;
-  margin-bottom:18px;color:var(--text);
+  font-size:clamp(48px,7vw,96px);
+  line-height:.88;letter-spacing:.02em;
+  margin-bottom:20px;color:var(--text);
   position:relative;display:block;
 }
 .ch-title::after{
   content:'';
   display:block;
-  width:32px;height:2.5px;
-  margin-top:8px;
-  background:var(--grad-blue);
-  border-radius:2px;
+  width:40px;height:1px;
+  margin-top:16px;
+  background:var(--grad-main);
 }
 .ch-sub{
-  font-size:14px;font-weight:400;color:var(--text-2);
-  line-height:1.7;margin-bottom:44px;
-  padding-bottom:24px;border-bottom:1px solid var(--border);
+  font-size:14px;font-weight:300;color:var(--text-2);
+  line-height:1.75;margin-bottom:48px;
+  padding-bottom:28px;border-bottom:1px solid var(--border);
+  letter-spacing:.02em;
 }
 
 /* ─────────────────────────────────────
@@ -199,74 +203,76 @@ body{
   background:var(--bg);
   padding:0;position:relative;overflow:hidden;
   border-bottom:1px solid var(--border);
+  min-height:380px;
 }
-/* 右下にグラデーション光彩 */
+/* グラデーション光 */
 .hero::before{
   content:'';position:absolute;inset:0;z-index:0;
   background:
-    radial-gradient(ellipse 70% 80% at 90% 110%,rgba(99,102,241,.08) 0%,transparent 60%),
-    radial-gradient(ellipse 50% 50% at 10% -10%,rgba(56,189,248,.06) 0%,transparent 55%);
+    radial-gradient(ellipse 60% 70% at 80% 100%,rgba(232,197,71,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 50% at 5% 0%,rgba(232,68,68,.04) 0%,transparent 55%);
   pointer-events:none;
 }
+/* 右側の大きな透かし */
 .hero::after{
   content:'FLIP';
-  position:absolute;right:-8px;bottom:-14px;z-index:0;
+  position:absolute;right:-12px;bottom:-20px;z-index:0;
   font-family:'Bebas Neue',cursive;
-  font-size:clamp(150px,24vw,320px);
-  background:var(--grad-blue);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  opacity:.045;line-height:1;pointer-events:none;user-select:none;
+  font-size:clamp(200px,30vw,420px);
+  color:rgba(232,197,71,.03);
+  line-height:1;pointer-events:none;user-select:none;
+  letter-spacing:-.02em;
 }
 .hero-inner{
   position:relative;z-index:1;
-  display:grid;grid-template-columns:1fr 3px;min-height:300px;
+  display:grid;grid-template-columns:1fr 1px;min-height:380px;
 }
-.hero-left{padding:56px 40px 48px}
+.hero-left{padding:64px 48px 56px}
 .hero-right{
-  background:linear-gradient(180deg,transparent 0%,rgba(14,165,233,.3) 30%,rgba(99,102,241,.3) 70%,transparent 100%);
+  background:linear-gradient(180deg,transparent 0%,rgba(232,197,71,.15) 40%,rgba(232,68,68,.15) 70%,transparent 100%);
 }
 @media(max-width:600px){
-  .hero-left{padding:40px 20px 36px}
+  .hero-left{padding:48px 20px 40px}
   .hero-inner{grid-template-columns:1fr}
   .hero-right{display:none}
 }
 .hero-eyebrow{
-  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  background:var(--grad-blue);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:18px;display:flex;align-items:center;gap:10px;
+  font-family:'DM Mono',monospace;
+  font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:24px;display:flex;align-items:center;gap:12px;
 }
 .hero-eyebrow::before{
-  content:'';width:20px;height:2px;flex-shrink:0;
-  background:var(--grad-blue);border-radius:2px;
-  -webkit-text-fill-color:initial;
+  content:'';width:24px;height:1px;flex-shrink:0;
+  background:var(--accent);
 }
 .hero-kv{
   font-family:'Bebas Neue',cursive;
-  font-size:clamp(52px,10vw,118px);
-  line-height:.84;letter-spacing:.015em;
-  color:var(--text);margin-bottom:4px;
+  font-size:clamp(64px,11vw,140px);
+  line-height:.82;letter-spacing:.015em;
+  color:var(--text);margin-bottom:2px;
 }
 .hero-kv-sub{
   font-family:'Bebas Neue',cursive;
-  font-size:clamp(28px,5.5vw,64px);
+  font-size:clamp(36px,6.5vw,76px);
   line-height:.88;letter-spacing:.015em;
-  background:var(--grad-ig);
+  background:var(--grad-main);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:24px;
+  margin-bottom:32px;
 }
-.hero-meta{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
 .hero-meta-item{
-  font-size:11px;font-weight:600;letter-spacing:.06em;
+  font-family:'DM Mono',monospace;
+  font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
   color:var(--text-3);border:1px solid var(--border-2);
-  padding:4px 12px;border-radius:var(--r-full);background:var(--bg-3);
+  padding:4px 12px;border-radius:2px;
 }
 .hero-meta-item.hi{
-  color:var(--accent-d);border-color:var(--accent-b);background:var(--accent-l);
+  color:var(--accent);border-color:var(--accent-b);
 }
 .hero-desc{
-  font-size:14.5px;font-weight:400;color:var(--text-2);
-  max-width:420px;line-height:1.9;
+  font-size:14px;font-weight:300;color:var(--text-2);
+  max-width:440px;line-height:2;letter-spacing:.02em;
 }
 
 /* ─────────────────────────────────────
@@ -275,100 +281,96 @@ body{
 .toc-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(148px,1fr));
-  gap:8px;margin-top:20px;
+  gap:1px;margin-top:0;
+  border:1px solid var(--border);
+  background:var(--border);
+  border-radius:var(--r);
+  overflow:hidden;
 }
 .toc-card{
   display:flex;flex-direction:column;justify-content:space-between;
-  background:var(--bg);
-  border:1px solid var(--border);
-  border-radius:var(--r);
-  padding:16px 14px 14px;
+  background:var(--bg-3);
+  padding:18px 16px 16px;
   text-decoration:none;position:relative;
-  min-height:86px;overflow:hidden;
-  box-shadow:0 1px 3px rgba(0,0,0,.04);
-  transition:box-shadow .18s,border-color .18s,transform .18s;
+  min-height:90px;overflow:hidden;
+  transition:background .15s;
 }
 .toc-card::before{
   content:attr(data-num);
-  position:absolute;right:-4px;bottom:-8px;
-  font-family:'Bebas Neue',cursive;font-size:58px;line-height:1;
-  color:rgba(14,165,233,.06);pointer-events:none;user-select:none;
+  position:absolute;right:-2px;bottom:-10px;
+  font-family:'Bebas Neue',cursive;font-size:64px;line-height:1;
+  color:rgba(232,197,71,.05);pointer-events:none;user-select:none;
 }
-.toc-card:hover{
-  box-shadow:0 8px 24px rgba(14,165,233,.14),0 2px 6px rgba(0,0,0,.04);
-  border-color:var(--accent-b);transform:translateY(-3px);
-}
-.toc-card:hover .toc-name{color:var(--text)}
+.toc-card:hover{background:var(--bg-3)}
+.toc-card:hover .toc-name{color:var(--accent)}
 .toc-num{
-  font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;
-  background:var(--grad-blue);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.16em;
+  color:var(--accent);
   display:block;margin-bottom:auto;
 }
-.toc-name{font-weight:600;font-size:13px;color:var(--text-2);line-height:1.3;margin-top:10px}
-.toc-card.new-ch{border-color:rgba(99,102,241,.2)}
-.toc-card.new-ch .toc-num{background:var(--grad-warm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.toc-name{font-weight:500;font-size:13px;color:var(--text-2);line-height:1.3;margin-top:12px;transition:color .15s}
+.toc-card.new-ch .toc-num{color:var(--cyan)}
 .toc-card.feat{grid-column:span 2}
 @media(max-width:480px){.toc-card.feat{grid-column:span 1}}
 
 /* ─────────────────────────────────────
    CARDS
 ───────────────────────────────────── */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:20px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;margin-top:20px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
 .card{
-  background:var(--bg);padding:20px;
-  border:1px solid var(--border);border-radius:var(--r);
-  box-shadow:0 1px 3px rgba(0,0,0,.05);
-  transition:box-shadow .18s,border-color .18s,transform .18s;
+  background:var(--bg-3);padding:20px;
+  transition:background .15s;
 }
-.card:hover{box-shadow:0 6px 20px rgba(14,165,233,.1),0 2px 6px rgba(0,0,0,.05);border-color:var(--accent-b);transform:translateY(-2px)}
-.sec-dark .card,.sec-dark2 .card{background:var(--bg)}
+.card:hover{background:var(--bg-4)}
+.sec-dark .card,.sec-dark2 .card{background:var(--bg-3)}
+.sec-dark .card:hover,.sec-dark2 .card:hover{background:var(--bg-3)}
 .card-title{
-  font-size:13.5px;font-weight:700;color:var(--text);
-  margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border);
+  font-size:13px;font-weight:600;color:var(--text);
+  margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border);
+  letter-spacing:.02em;
 }
 .card-body{font-size:13px;color:var(--text-2);line-height:1.8}
+.card-icon{font-size:18px;margin-bottom:8px;display:block}
 
 /* ─────────────────────────────────────
    HIGHLIGHT BOX
 ───────────────────────────────────── */
 .highlight{
-  padding:18px 20px;background:var(--bg-3);
-  border:1px solid var(--border);
-  border-left:3px solid var(--accent);
+  padding:18px 22px;background:var(--bg-3);
+  border:1px solid var(--border-2);
+  border-left:2px solid var(--accent);
   border-radius:0 var(--r-sm) var(--r-sm) 0;
-  margin:20px 0;font-size:14px;color:var(--text-2);line-height:1.85;
+  margin:20px 0;font-size:14px;color:var(--text-2);line-height:1.9;
 }
 .highlight strong{color:var(--text)}
-.highlight.highlight-danger{border-left-color:var(--danger);background:rgba(239,68,68,.04)}
-.highlight.highlight-warn{border-left-color:var(--warn);background:rgba(245,158,11,.04)}
+.highlight.highlight-danger{border-left-color:var(--danger);background:rgba(232,68,68,.05)}
+.highlight.highlight-warn{border-left-color:var(--warn);background:rgba(232,197,71,.05)}
 
 /* ─────────────────────────────────────
    FLOW
 ───────────────────────────────────── */
-.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:20px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:20px}
 .flow-step{
-  background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);
-  padding:8px 16px;font-size:13px;font-weight:600;color:var(--text);
+  background:var(--bg-4);border:1px solid var(--border-2);border-radius:var(--r-sm);
+  padding:8px 16px;font-size:13px;font-weight:500;color:var(--text);
 }
-.sec-dark .flow-step,.sec-dark2 .flow-step{background:var(--bg);border-color:var(--border-2)}
-.flow-arrow{font-size:16px;color:var(--text-3)}
+.flow-arrow{font-size:12px;color:var(--accent);font-family:'DM Mono',monospace}
 
 /* ─────────────────────────────────────
    TABLE
 ───────────────────────────────────── */
 .table-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border)}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
-thead tr{background:var(--bg-3)}
+thead tr{background:var(--bg-4)}
 thead th{
   padding:12px 16px;text-align:left;
-  font-family:'Inter',sans-serif;
-  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--text-2);border-bottom:1px solid var(--border);
+  font-family:'DM Mono',monospace;
+  font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-3);border-bottom:1px solid var(--border-2);
 }
 tbody tr{border-bottom:1px solid var(--border)}
 tbody tr:last-child{border-bottom:none}
-tbody tr:hover{background:var(--bg-2)}
+tbody tr:hover{background:var(--bg-3)}
 tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 
 /* ─────────────────────────────────────
@@ -378,206 +380,204 @@ tbody td{padding:12px 16px;color:var(--text-2);vertical-align:top}
 .checklist li{
   display:flex;align-items:flex-start;gap:12px;
   font-size:13.5px;color:var(--text-2);line-height:1.7;
-  padding:12px 16px;background:var(--bg);
+  padding:12px 16px;background:var(--bg-3);
   border:1px solid var(--border);border-radius:var(--r-sm);
 }
 .check-box{
-  width:20px;height:20px;flex-shrink:0;
-  background:var(--accent-l);border:1px solid var(--accent-b);
-  border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:1px;
+  width:18px;height:18px;flex-shrink:0;
+  background:rgba(232,197,71,.1);border:1px solid var(--accent-b);
+  border-radius:2px;display:flex;align-items:center;justify-content:center;margin-top:2px;
 }
-.check-box svg{width:11px;height:11px;stroke:var(--accent);stroke-width:2.5;fill:none}
+.check-box svg{width:10px;height:10px;stroke:var(--accent);stroke-width:2.5;fill:none}
 
 /* ─────────────────────────────────────
    SECTION DIVIDER
 ───────────────────────────────────── */
-.sec-divider{border:none;height:1px;background:var(--border);margin:40px 0}
+.sec-divider{border:none;height:1px;background:var(--border);margin:48px 0}
 
 /* ─────────────────────────────────────
    BRAIN ANATOMY
 ───────────────────────────────────── */
-.brain-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.brain-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:24px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
 @media(max-width:600px){.brain-grid{grid-template-columns:1fr}}
 .brain-card{
-  background:var(--bg);border:1px solid var(--border);border-radius:var(--r);
-  padding:18px;overflow:hidden;
-  transition:box-shadow .18s,border-color .18s,transform .15s;
-  border-top:2px solid var(--accent);
+  background:var(--bg-3);
+  padding:20px;overflow:hidden;
+  transition:background .15s;
 }
-.brain-card:hover{
-  box-shadow:0 6px 20px rgba(14,165,233,.1);
-  border-color:var(--accent-b);
-  transform:translateY(-2px);
-}
+.brain-card:hover{background:var(--bg-4)}
+.brain-card.amygdala{border-top:2px solid var(--danger)}
 .brain-card-title{
-  font-size:13.5px;font-weight:700;color:var(--text);
+  font-size:13px;font-weight:600;color:var(--text);
   margin-bottom:10px;padding-bottom:10px;
   border-bottom:1px solid var(--border);
+  letter-spacing:.02em;
 }
-.brain-card p{font-size:13px;color:var(--text-2);line-height:1.85}
+.brain-card p{font-size:13px;color:var(--text-2);line-height:1.88}
 .brain-card strong{color:var(--text)}
-/* アコーディオン型brain-card (CH01 PART2で使用) */
-.brain-trigger{width:100%;background:none;border:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:12px;text-align:left}
-.brain-icon{width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:10px;background:var(--bg-3);border:1px solid var(--border);font-size:17px}
-.brain-name{font-size:13.5px;font-weight:700;color:var(--text)}
-.brain-tag{font-size:10px;color:var(--text-3);margin-top:1px;font-weight:500}
-.brain-chevron{width:18px;height:18px;margin-left:auto;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text-3);transition:transform .2s}
-.brain-chevron svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+/* アコーディオン型brain-card */
+.brain-trigger{width:100%;background:none;border:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;text-align:left}
+.brain-icon{width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:var(--r-sm);background:var(--bg-4);border:1px solid var(--border-2);font-size:16px}
+.brain-name{font-size:13px;font-weight:600;color:var(--text);letter-spacing:.02em}
+.brain-tag{font-family:'DM Mono',monospace;font-size:9px;color:var(--text-3);margin-top:2px;letter-spacing:.08em}
+.brain-chevron{width:16px;height:16px;margin-left:auto;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text-3);transition:transform .2s}
+.brain-chevron svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2}
 .brain-card.open .brain-chevron{transform:rotate(180deg)}
-.brain-body{display:none;padding:0 18px 16px;font-size:13px;color:var(--text-2);line-height:1.85;border-top:1px solid var(--border);padding-top:14px}
+.brain-body{display:none;padding:0 20px 18px;font-size:13px;color:var(--text-2);line-height:1.88;border-top:1px solid var(--border);padding-top:16px}
 .brain-card.open .brain-body{display:block}
 
 /* ─────────────────────────────────────
    ACCORDION
 ───────────────────────────────────── */
-.accordion{display:flex;flex-direction:column;gap:6px;margin-top:20px}
-.acc-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);transition:border-color .15s}
-.acc-item.open{border-color:var(--accent-b)}
-.acc-trigger{width:100%;background:none;border:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
-.acc-q{font-size:13.5px;font-weight:600;color:var(--text-2);line-height:1.5}
-.acc-icon{width:24px;height:24px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text-3)}
-.acc-icon svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform .2s}
-.acc-item.open .acc-icon svg{transform:rotate(180deg)}
-.acc-body{display:none;padding:0 18px 16px;font-size:13.5px;color:var(--text-2);line-height:1.85}
+.accordion{display:flex;flex-direction:column;gap:1px;margin-top:20px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.acc-item{background:var(--bg-3);transition:background .15s}
+.acc-item.open{background:var(--bg-4)}
+.acc-trigger{width:100%;background:none;border:none;cursor:pointer;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
+.acc-q{font-size:13.5px;font-weight:500;color:var(--text-2);line-height:1.5;letter-spacing:.01em}
+.acc-item.open .acc-q{color:var(--text)}
+.acc-icon{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text-3)}
+.acc-icon svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .2s}
+.acc-item.open .acc-icon svg{transform:rotate(180deg);stroke:var(--accent)}
+.acc-body{display:none;padding:0 20px 16px;font-size:13.5px;color:var(--text-2);line-height:1.88}
 .acc-item.open .acc-body{display:block}
 
 /* ─────────────────────────────────────
    WORKFLOW
 ───────────────────────────────────── */
-.wf-steps{display:flex;flex-direction:column;gap:0;margin-top:24px;overflow:hidden}
+.wf-steps{display:flex;flex-direction:column;gap:0;margin-top:28px;overflow:hidden}
 .wf-step{display:grid;grid-template-columns:52px 1fr;gap:16px;position:relative}
 .wf-step:not(:last-child)::after{
-  content:'';position:absolute;left:26px;top:52px;
+  content:'';position:absolute;left:25px;top:52px;
   width:2px;height:calc(100% + 20px);
   background:linear-gradient(180deg,var(--accent) 0%,var(--border) 100%);
-  border-radius:1px;
 }
 .wf-num{
   width:52px;height:52px;flex-shrink:0;z-index:1;
-  background:var(--grad-blue);border-radius:50%;
+  background:var(--grad-main);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',cursive;font-size:20px;color:#fff;
-  box-shadow:0 4px 14px rgba(14,165,233,.3),0 0 0 3px rgba(14,165,233,.08);
+  font-family:'Bebas Neue',cursive;font-size:22px;color:var(--bg);
+  box-shadow:0 0 0 4px rgba(232,197,71,.12);
 }
 .wf-content{padding-bottom:28px}
-.wf-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px}
+.wf-title{
+  font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px;
+  display:flex;align-items:center;gap:12px;padding-top:12px;letter-spacing:.01em;
+}
 .wf-body{font-size:13.5px;color:var(--text-2);line-height:1.9}
 
 /* WF アコーディオン詳細 */
 .wf-detail{
-  margin-top:12px;background:var(--bg-3);
-  border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;
+  margin-top:14px;background:var(--bg-4);
+  border:1px solid var(--border-2);border-radius:var(--r-sm);overflow:hidden;
 }
 .wf-detail-trigger{width:100%;background:none;border:none;padding:11px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;text-align:left}
-.wf-detail-label{font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--grad-blue);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.wf-detail-icon{width:20px;height:20px;flex-shrink:0;border:1px solid var(--border-2);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-left:auto;transition:transform .2s,background .15s,border-color .15s}
+.wf-detail-label{
+  font-family:'DM Mono',monospace;
+  font-size:10px;font-weight:500;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;
+}
+.wf-detail-icon{width:20px;height:20px;flex-shrink:0;border:1px solid var(--border-2);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;margin-left:auto;transition:transform .2s,background .15s}
 .wf-detail-icon svg{width:9px;height:9px;fill:none;stroke:var(--text-3);stroke-width:2.5}
-.wf-detail.open .wf-detail-icon{transform:rotate(180deg);background:var(--accent);border-color:var(--accent)}
-.wf-detail.open .wf-detail-icon svg{stroke:#fff}
+.wf-detail.open .wf-detail-icon{transform:rotate(180deg);background:var(--accent)}
+.wf-detail.open .wf-detail-icon svg{stroke:var(--bg)}
 .wf-detail-body{display:none;padding:4px 16px 16px;overflow:hidden}
 .wf-detail.open .wf-detail-body{display:block}
 
 /* ─────────────────────────────────────
    ENGINE CARDS
 ───────────────────────────────────── */
-.engine-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.engine-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:20px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
 @media(max-width:620px){.engine-wrap{grid-template-columns:1fr}}
 .engine-card{
-  padding:18px;background:var(--bg);
-  border:1px solid var(--border);border-radius:var(--r);
-  border-top:2px solid var(--accent);
-  box-shadow:0 1px 3px rgba(0,0,0,.05);
-  transition:box-shadow .18s,transform .15s;
+  padding:20px;background:var(--bg-3);
+  transition:background .15s;
 }
-.engine-card:hover{box-shadow:0 6px 20px rgba(14,165,233,.1);transform:translateY(-2px)}
-.engine-num{font-family:'Bebas Neue',cursive;font-size:40px;color:rgba(14,165,233,.14);line-height:1;margin-bottom:3px}
-.engine-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px}
+.engine-card:hover{background:var(--bg-4)}
+.engine-num{font-family:'Bebas Neue',cursive;font-size:48px;color:rgba(232,197,71,.12);line-height:1;margin-bottom:4px}
+.engine-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px;letter-spacing:.02em}
 .engine-body{font-size:13px;color:var(--text-2);line-height:1.8}
-.engine-example{margin-top:10px;padding:9px 12px;background:var(--accent-l);border-left:2px solid var(--accent);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:12px;color:var(--accent-d)}
+.engine-example{margin-top:12px;padding:9px 14px;background:rgba(232,197,71,.06);border-left:2px solid var(--accent);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:12px;color:var(--accent)}
 
 /* ─────────────────────────────────────
    ANGLE GRID
 ───────────────────────────────────── */
-.angle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
-.angle-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center;transition:box-shadow .18s,transform .15s}
-.angle-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.07);transform:translateY(-2px)}
-.angle-icon{font-size:20px;margin-bottom:6px;display:block}
-.angle-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
-.angle-desc{font-size:11px;color:var(--text-2)}
+.angle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:18px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.angle-card{background:var(--bg-3);padding:16px;text-align:center;transition:background .15s}
+.angle-card:hover{background:var(--bg-4)}
+.angle-icon{font-size:20px;margin-bottom:8px;display:block}
+.angle-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;letter-spacing:.02em}
+.angle-desc{font-size:11px;color:var(--text-3);line-height:1.6}
 
 /* ─────────────────────────────────────
    CHARACTER LIST
 ───────────────────────────────────── */
-.char-list{display:flex;flex-direction:column;gap:8px;margin-top:18px}
-.char-item{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm)}
-.char-badge{min-width:72px;text-align:center;padding:3px 8px;font-size:10px;font-weight:700;letter-spacing:.06em;border:1px solid;border-radius:var(--r-full);flex-shrink:0}
+.char-list{display:flex;flex-direction:column;gap:1px;margin-top:18px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.char-item{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:var(--bg-3);transition:background .15s}
+.char-item:hover{background:var(--bg-4)}
+.char-badge{min-width:72px;text-align:center;padding:3px 8px;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1px solid;border-radius:2px;flex-shrink:0;font-family:'DM Mono',monospace}
 .char-body{font-size:13.5px;color:var(--text-2);line-height:1.75}
 
 /* ─────────────────────────────────────
    TELOP DEMO
 ───────────────────────────────────── */
-.telop-demo{background:var(--bg-3);padding:18px;margin-top:18px;border:1px solid var(--border);border-radius:var(--r)}
-.telop-screen{background:#050507;aspect-ratio:16/9;max-height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:var(--r-sm)}
-.telop-video-bg{position:absolute;inset:0;background:linear-gradient(135deg,#07070f,#080d1c,#050e18);opacity:.95}
+.telop-demo{background:var(--bg-4);padding:20px;margin-top:18px;border:1px solid var(--border-2);border-radius:var(--r)}
+.telop-screen{background:#020204;aspect-ratio:16/9;max-height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:var(--r-sm)}
+.telop-video-bg{position:absolute;inset:0;background:linear-gradient(135deg,#04040a,#060a14,#040a12);opacity:.98}
 .telop-op{position:absolute;bottom:16px;left:16px;right:16px}
 .telop-name{font-size:18px;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.9)}
-.telop-role{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
-.telop-bar{width:2.5px;height:100%;background:var(--accent);position:absolute;left:0;top:0}
+.telop-role{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);margin-top:3px;letter-spacing:.08em}
+.telop-bar{width:2px;height:100%;background:var(--accent);position:absolute;left:0;top:0}
 
 /* ─────────────────────────────────────
    TIMELINE BAR
 ───────────────────────────────────── */
-.timeline-bar{background:#f8fafc;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;height:40px;display:flex;margin:18px 0}
-.tl-seg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.1em;padding:0 10px;white-space:nowrap}
+.timeline-bar{background:var(--bg-4);border:1px solid var(--border-2);border-radius:var(--r-sm);overflow:hidden;height:40px;display:flex;margin:18px 0}
+.tl-seg{display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.12em;padding:0 10px;white-space:nowrap;text-transform:uppercase}
 .tl-seg.hook{background:var(--danger);color:#fff;flex:1}
-.tl-seg.body{background:var(--accent);color:#fff;flex:3}
-.tl-seg.cta {background:var(--indigo);color:#fff;flex:1}
+.tl-seg.body{background:rgba(74,158,255,.8);color:#fff;flex:3}
+.tl-seg.cta {background:var(--cyan);color:var(--bg);flex:1}
 
 /* ─────────────────────────────────────
    INSERT GRID
 ───────────────────────────────────── */
-.insert-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}
+.insert-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:20px 0;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
 @media(max-width:580px){.insert-grid{grid-template-columns:1fr}}
-.insert-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px}
-.insert-type{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-d);margin-bottom:6px}
-.insert-title{font-weight:700;font-size:14px;color:var(--text);margin-bottom:6px}
+.insert-card{background:var(--bg-3);padding:18px;transition:background .15s}
+.insert-card:hover{background:var(--bg-4)}
+.insert-type{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.insert-title{font-weight:600;font-size:14px;color:var(--text);margin-bottom:6px;letter-spacing:.01em}
 .insert-body{font-size:12.5px;color:var(--text-2);line-height:1.8}
-
-/* ─────────────────────────────────────
-   CHAPTER DIVIDER
-───────────────────────────────────── */
-
-
 
 /* ─────────────────────────────────────
    BADGE
 ───────────────────────────────────── */
 .badge{
   display:inline-block;
-  font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  padding:3px 10px;border-radius:var(--r-full);border:1px solid;
+  font-family:'DM Mono',monospace;
+  font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 10px;border-radius:2px;border:1px solid;
 }
-.badge-blue{background:var(--accent-l);color:var(--accent-d);border-color:var(--accent-b)}
-.badge-warm{background:rgba(245,158,11,.1);color:#b45309;border-color:rgba(245,158,11,.25)}
-.badge-red {background:rgba(239,68,68,.08);color:#b91c1c;border-color:rgba(239,68,68,.2)}
-.badge-indigo{background:rgba(99,102,241,.08);color:#4338ca;border-color:rgba(99,102,241,.2)}
+.badge-blue{background:rgba(74,158,255,.08);color:#4a9eff;border-color:rgba(74,158,255,.2)}
+.badge-warm{background:rgba(232,197,71,.08);color:var(--accent);border-color:var(--accent-b)}
+.badge-red{background:rgba(232,68,68,.08);color:var(--danger);border-color:rgba(232,68,68,.2)}
+.badge-indigo{background:rgba(78,205,196,.08);color:var(--cyan);border-color:rgba(78,205,196,.2)}
+
 /* ─────────────────────────────────────
    FOOTER
 ───────────────────────────────────── */
 footer{
-  background:var(--bg);border-top:1px solid var(--border);
-  padding:48px 0;text-align:center;
+  background:var(--bg-3);border-top:1px solid var(--border);
+  padding:56px 0;text-align:center;
 }
 
 /* ─────────────────────────────────────
-   GRADIENT BADGE UTILITY
+   GRADIENT UTILITY
 ───────────────────────────────────── */
 .grad-text{
-  background:var(--grad-ig);
+  background:var(--grad-film);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
 .grad-text-blue{
-  background:var(--grad-blue);
+  background:var(--grad-main);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
 
@@ -619,20 +619,17 @@ footer{
     <div class="nav-divider"></div>
     <a href="#ch01" class="nav-item">CH01 脳・30秒理論</a>
     <div class="nav-divider"></div>
-        <div class="nav-divider"></div>
-        <div class="nav-divider"></div>
-        <div class="nav-divider"></div>
     <a href="#ch05" class="nav-item">CH05 ワークフロー</a>
     <div class="nav-divider"></div>
     <a href="#ch06" class="nav-item">CH06 タイムライン</a>
     <div class="nav-divider"></div>
-    <a href="#ch07" class="nav-item" style="color:var(--accent)">CH07 構成設計</a>
+    <a href="#ch07" class="nav-item">CH07 構成設計</a>
     <div class="nav-divider"></div>
-    <a href="#ch08" class="nav-item" style="color:var(--accent)">CH08 キャラクター</a>
+    <a href="#ch08" class="nav-item">CH08 キャラクター</a>
     <div class="nav-divider"></div>
-    <a href="#ch09" class="nav-item" style="color:var(--accent)">CH09 撮影基本</a>
+    <a href="#ch09" class="nav-item">CH09 撮影基本</a>
     <div class="nav-divider"></div>
-    <a href="#ch10" class="nav-item" style="color:var(--accent)">CH10 テロップ設計</a>
+    <a href="#ch10" class="nav-item">CH10 テロップ設計</a>
   </div>
 </nav>
 
@@ -641,7 +638,7 @@ footer{
   <!-- ハッチング + ノイズ -->
   <div style="position:absolute;inset:0;z-index:0;
     background:
-      repeating-linear-gradient(-52deg,transparent 0,transparent 48px,var(--accent-l) 48px,var(--accent-l) 49px),
+      repeating-linear-gradient(-52deg,transparent 0,transparent 48px,rgba(232,197,71,.04) 48px,rgba(232,197,71,.04) 49px),
       repeating-linear-gradient(38deg,transparent 0,transparent 72px,rgba(255,255,255,.007) 72px,rgba(255,255,255,.007) 73px);
     pointer-events:none"></div>
   <!-- 透かし FLIP -->
@@ -679,9 +676,9 @@ footer{
 </section>
 
 <!-- TOC -->
-<section style="background:var(--bg-3);padding:40px 0 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<section style="background:var(--bg-2);padding:40px 0 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="container">
-    <p style="font-family:'Bebas Neue',cursive;font-size:10px;letter-spacing:.38em;color:rgba(14,165,233,.4);margin-bottom:4px">CONTENTS</p>
+    <p style="font-family:'Bebas Neue',cursive;font-size:10px;letter-spacing:.38em;color:rgba(232,197,71,.5);margin-bottom:4px">CONTENTS</p>
     <div class="toc-grid">
       <a href="#ch00" class="toc-card feat" data-num="00"><span class="toc-num">CH00</span><div class="toc-name">マインドセット</div></a>
       <a href="#ch01" class="toc-card feat" data-num="01"><span class="toc-num">CH01</span><div class="toc-name">脳の構造と30秒理論</div></a>
@@ -711,7 +708,7 @@ footer{
     </p>
 
     <!-- ── 脳の燃費 ── -->
-    <div style="border-left:2px solid var(--accent-l);padding:20px 24px;margin-bottom:32px;background:var(--accent-l)">
+    <div style="border-left:2px solid var(--border-2);padding:20px 24px;margin-bottom:32px;background:rgba(232,197,71,.06)">
       <p style="color:var(--text-2);font-size:14px;line-height:2;margin-bottom:12px">なぜか。脳のつくりを考えれば、すぐ分かる。</p>
       <p style="color:var(--text-2);font-size:15px;line-height:2.1;margin-bottom:12px">
         脳は体重の約 <strong style="color:var(--accent);font-size:22px;font-family:'Bebas Neue',cursive;letter-spacing:.05em">2%</strong> しかない。
@@ -751,7 +748,7 @@ footer{
     </div>
 
     <!-- ── 答え ── -->
-    <div style="background:var(--accent-l);border:1px solid rgba(14,165,233,.2);border-left:3px solid var(--accent);padding:24px 28px;margin-bottom:36px">
+    <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);border-left:2px solid var(--accent);padding:24px 28px;margin-bottom:36px">
       <p style="font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:.2em;color:var(--accent);margin-bottom:12px">THE ANSWER</p>
       <p style="color:var(--text);font-size:16px;line-height:2;font-weight:700">
         「脳の各部位に、正しい順番で、30秒ずつ見せること」
@@ -810,7 +807,7 @@ footer{
     </p>
 
     <!-- なぜ可能なのか -->
-    <div style="background:var(--accent-l);border:1px solid rgba(14,165,233,.14);border-left:3px solid var(--accent);padding:18px 22px;margin-bottom:28px">
+    <div style="background:rgba(232,197,71,.06);border:1px solid rgba(14,165,233,.14);border-left:2px solid var(--accent);padding:18px 22px;margin-bottom:28px">
       <p style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.22em;color:var(--accent);margin-bottom:10px">なぜ彼らは外部流入を取り込めるのか</p>
       <p style="font-size:14px;color:var(--text-2);line-height:2;font-weight:700;margin-bottom:8px">
         「誰が見ても面白い」レベルまでコンテンツを仕上げているから。
@@ -827,7 +824,7 @@ footer{
     </p>
 
     <!-- 結論 -->
-    <div style="background:var(--accent-l);border:1px solid rgba(14,165,233,.2);border-left:3px solid var(--accent);padding:20px 24px">
+    <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);border-left:2px solid var(--accent);padding:20px 24px">
       <p style="font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:.2em;color:var(--accent);margin-bottom:10px">このマニュアルを作っている理由</p>
       <p style="font-size:15px;color:var(--text);line-height:2;font-weight:700">
         外部流入時代で戦えるのは、圧倒的なコンテンツクオリティを持つチャンネルだけだ。
@@ -861,7 +858,7 @@ footer{
       </p>
 
       <!-- 抽象思考への警告 -->
-      <div style="background:rgba(200,32,16,.05);border:1px solid rgba(200,32,16,.18);border-left:3px solid var(--danger);padding:18px 22px;margin-bottom:24px">
+      <div style="background:rgba(232,68,68,.05);border:1px solid rgba(232,68,68,.2);border-left:2px solid var(--danger);padding:18px 22px;margin-bottom:24px">
         <p style="font-size:13px;color:var(--danger);font-weight:700;margin-bottom:8px;letter-spacing:.04em">⚠ 抽象思考で作ると、こうなる</p>
         <p style="font-size:13.5px;color:var(--text-2);line-height:2">
           「面白いとは何か」という感覚ベースで動画を作ると、<strong style="color:var(--text)">個人の感性・流行・大衆の変数</strong>に依存してしまう。<br>
@@ -870,22 +867,22 @@ footer{
       </div>
 
       <!-- 正しい思考順序 -->
-      <div style="background:var(--accent-l);border:1px solid rgba(14,165,233,.18);border-left:3px solid var(--accent);padding:18px 22px;margin-bottom:24px">
+      <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);border-left:2px solid var(--accent);padding:18px 22px;margin-bottom:24px">
         <p style="font-size:13px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:.04em">✓ 正しい思考の順序</p>
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-          <div style="text-align:center;padding:10px 16px;background:var(--accent-l);border:1px solid rgba(14,165,233,.2)">
+          <div style="text-align:center;padding:10px 16px;background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2)">
             <div style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.15em;color:var(--accent);margin-bottom:4px">STEP 1</div>
             <div style="font-size:13px;color:var(--text);font-weight:700;line-height:1.4">脳の部位への<br>刺激を設計する</div>
             <div style="font-size:11px;color:var(--text-2);margin-top:4px">数百万年変わらない論理</div>
           </div>
           <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--accent)">+</div>
-          <div style="text-align:center;padding:10px 16px;background:rgba(0,0,0,.03);border:1px solid var(--border)">
+          <div style="text-align:center;padding:10px 16px;background:var(--bg-4);border:1px solid var(--border-2)">
             <div style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.15em;color:var(--text-2);margin-bottom:4px">STEP 2</div>
             <div style="font-size:13px;color:var(--text);font-weight:700;line-height:1.4">あなたの感性を<br>最後に加える</div>
             <div style="font-size:11px;color:var(--text-2);margin-top:4px">個性・スタイル・視点</div>
           </div>
           <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--text-2)">=</div>
-          <div style="text-align:center;padding:10px 16px;background:rgba(26,112,48,.05);border:1px solid rgba(26,112,48,.2)">
+          <div style="text-align:center;padding:10px 16px;background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2)">
             <div style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.15em;color:var(--ok);margin-bottom:4px">OUTPUT</div>
             <div style="font-size:13px;color:var(--text);font-weight:700;line-height:1.4">再現性のある<br>面白い動画</div>
           </div>
@@ -908,17 +905,17 @@ footer{
     </div>
 
     <!-- 軽い脳→重い脳 ルール -->
-    <div style="margin-bottom:36px;padding:22px 24px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);box-shadow:0 2px 12px rgba(14,165,233,.07)">
+    <div style="margin-bottom:36px;padding:22px 24px;background:var(--bg-3);border:1px solid var(--border-2);border-radius:var(--r)">
       <p style="font-size:15px;font-weight:600;color:var(--text);line-height:1.85;margin-bottom:16px">
         脳には、はっきりしたルールがあります。
       </p>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap">
-        <div style="padding:10px 20px;border-radius:var(--r-full);background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:.08em;color:var(--danger)">軽い脳</div>
-        <div style="font-family:'Bebas Neue',cursive;font-size:22px;background:var(--grad-blue);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">→</div>
-        <div style="padding:10px 20px;border-radius:var(--r-full);background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.2);font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:.08em;color:var(--indigo)">重い脳</div>
+        <div style="padding:10px 20px;border-radius:var(--r-full);background:rgba(232,68,68,.1);border:1px solid rgba(232,68,68,.25);font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:.08em;color:var(--danger)">軽い脳</div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:22px;background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">→</div>
+        <div style="padding:10px 20px;border-radius:var(--r-full);background:rgba(78,205,196,.08);border:1px solid rgba(78,205,196,.2);font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:.08em;color:var(--cyan)">重い脳</div>
         <p style="font-size:14px;color:var(--text-2);margin:0">の順番でしか動きたくない…</p>
       </div>
-      <div style="padding:16px 18px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.15);border-left:3px solid var(--danger);border-radius:0 var(--r-sm) var(--r-sm) 0">
+      <div style="padding:16px 18px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.15);border-left:2px solid var(--danger);border-radius:0 var(--r-sm) var(--r-sm) 0">
         <p style="font-size:13.5px;color:var(--text-2);line-height:1.9;margin:0">この順番を無視すると、<strong style="color:var(--text)">どんなに良い話でも脳は途中で離脱します。</strong></p>
       </div>
     </div>
@@ -930,7 +927,7 @@ footer{
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
           <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">①</div>
-          <div style="background:rgba(200,32,16,.15);border-left:3px solid var(--danger);padding:12px 16px">
+          <div style="background:rgba(232,68,68,.12);border-left:2px solid var(--danger);padding:12px 16px">
             <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--danger);letter-spacing:.05em">扁桃体</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">感情を動かす / 自分ごと化 / フック</div>
           </div>
@@ -939,7 +936,7 @@ footer{
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
           <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">②</div>
-          <div style="background:rgba(184,144,48,.12);border-left:3px solid var(--warn);padding:12px 16px">
+          <div style="background:rgba(232,197,71,.08);border-left:3px solid var(--warn);padding:12px 16px">
             <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--warn);letter-spacing:.05em">大脳辺縁系</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">ドーパミン / 続きを見たくなる / 期待感</div>
           </div>
@@ -948,8 +945,8 @@ footer{
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
           <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">③</div>
-          <div style="background:var(--accent-l);border-left:3px solid var(--accent);padding:12px 16px">
-            <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--indigo);letter-spacing:.05em">ミラーニューロン</div>
+          <div style="background:rgba(232,197,71,.06);border-left:2px solid var(--accent);padding:12px 16px">
+            <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--cyan);letter-spacing:.05em">ミラーニューロン</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">当事者になる / 共感 / 没入</div>
           </div>
           <div style="width:28px;text-align:center;font-size:10px;color:var(--text-3)">▼</div>
@@ -957,7 +954,7 @@ footer{
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
           <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">④</div>
-          <div style="background:rgba(0,80,200,.1);border-left:3px solid var(--accent-d);padding:12px 16px">
+          <div style="background:rgba(74,158,255,.08);border-left:2px solid var(--blue);padding:12px 16px">
             <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--accent);letter-spacing:.05em">前頭前野</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">論理・理解 / なるほど / 情報処理</div>
           </div>
@@ -966,7 +963,7 @@ footer{
 
         <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
           <div style="font-family:'Bebas Neue',cursive;font-size:13px;color:var(--text-3);text-align:center">⑤</div>
-          <div style="background:rgba(26,112,48,.1);border-left:3px solid var(--ok);padding:12px 16px">
+          <div style="background:rgba(74,222,128,.08);border-left:2px solid var(--ok);padding:12px 16px">
             <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--ok);letter-spacing:.05em">海馬</div>
             <div style="font-size:12px;color:var(--text-2);margin-top:2px">長期記憶 / 人生を変える / 行動変容</div>
           </div>
@@ -976,7 +973,7 @@ footer{
       </div>
 
       <!-- ゴール -->
-      <div style="margin-top:20px;padding:14px 16px;background:var(--accent-l);border:1px solid rgba(14,165,233,.2);display:flex;align-items:center;gap:14px">
+      <div style="margin-top:20px;padding:14px 16px;background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);display:flex;align-items:center;gap:14px">
         <span style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:.2em;color:var(--accent);flex-shrink:0">GOAL</span>
         <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin:0">この順番で刺激すること＝「面白い動画を作ること」。<br>5段階すべてに届いた動画だけが、記憶に残り、人を動かす。</p>
       </div>
@@ -1006,7 +1003,7 @@ footer{
             </div>
           </div>
           <p style="font-size:12px;color:var(--text-2);line-height:1.8;margin-bottom:10px">この見積もりより<strong style="color:var(--text)">重い負荷がいきなり来た瞬間</strong>、人は疲れて離脱します。<br><span style="font-size:11px;color:var(--text-3)">（サムネ→冒頭での離脱が起きる理由は、ここで説明できます）</span></p>
-          <div style="padding:10px 14px;background:var(--accent-l);border-left:2px solid var(--accent);border-radius:0 var(--r-sm) var(--r-sm) 0">
+          <div style="padding:10px 14px;background:rgba(232,197,71,.06);border-left:2px solid var(--accent);border-radius:0 var(--r-sm) var(--r-sm) 0">
             <p style="font-size:12px;color:var(--text);line-height:1.75;margin:0"><strong>👉</strong> 視聴維持率が落ちる最大の理由は、内容の善し悪しというより、<strong>脳の"想定負荷"と"実際の負荷"がズレたこと</strong>です。</p>
           </div>
         </div>
@@ -1020,7 +1017,7 @@ footer{
       </div>
 
       <div class="brain-card" style="background:rgba(100,100,200,.07);border-color:rgba(100,100,200,.3)">
-        <div class="brain-card-title" style="color:var(--indigo);font-size:15px">③ ミラーニューロン — 当事者になる</div>
+        <div class="brain-card-title" style="color:var(--cyan);font-size:15px">③ ミラーニューロン — 当事者になる</div>
         <p><strong>役割：</strong>他者の行動・感情を「自分のこと」として体験させる。「この人の気持ちが分かる」「自分と似ている」と感じた瞬間に刺激される。<br><br>
         ここが刺激されると視聴者は<strong>「見ている人 → 物語の当事者」</strong>に変わる。<br><br>
         <strong>刺激する素材：</strong>失敗・挫折を語る言葉 / 苦労している映像 / 過去の写真・昔の映像</p>
@@ -1053,7 +1050,7 @@ footer{
       <p style="font-size:13px;color:var(--text-2);margin-bottom:20px">動画の最初に必ずやること</p>
 
       <!-- 最重要警告 -->
-      <div style="background:rgba(200,32,16,.06);border:1px solid rgba(200,32,16,.25);border-left:3px solid var(--danger);padding:20px 24px;margin-bottom:24px">
+      <div style="background:rgba(200,32,16,.06);border:1px solid rgba(200,32,16,.25);border-left:2px solid var(--danger);padding:20px 24px;margin-bottom:24px">
         <p style="font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:.2em;color:var(--danger);margin-bottom:10px">⚠ 最も多い誤解</p>
         <p style="font-size:15px;color:var(--text);font-weight:700;line-height:1.8;margin-bottom:10px">
           「喧嘩・炎上・衝撃映像」を冒頭に入れても、長期的なファンにはならない。
@@ -1086,7 +1083,7 @@ footer{
       </div>
 
       <!-- ショート→長尺への補足 -->
-      <div style="background:var(--accent-l);border:1px solid rgba(14,165,233,.16);border-left:3px solid var(--accent);padding:16px 20px">
+      <div style="background:rgba(232,197,71,.06);border:1px solid rgba(14,165,233,.16);border-left:2px solid var(--accent);padding:16px 20px">
         <p style="font-family:'Bebas Neue',cursive;font-size:10.5px;letter-spacing:.2em;color:var(--accent);margin-bottom:8px">MEMO — ショートから長尺へ移行させる場合も同じ考え方</p>
         <p style="font-size:13px;color:var(--text-2);line-height:2">
           ショート動画で扁桃体を刺激できていれば、視聴者は「この人のことをもっと知りたい」という動機で長尺に流入してくる。<br>
@@ -1139,7 +1136,7 @@ footer{
 
     <!-- 2-3: ミラーニューロン -->
     <div style="margin-bottom:48px">
-      <h4 style="font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:.06em;color:var(--indigo);margin-bottom:4px">③ ミラーニューロンの刺激 — 共感を設計する</h4>
+      <h4 style="font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:.06em;color:var(--cyan);margin-bottom:4px">③ ミラーニューロンの刺激 — 共感を設計する</h4>
       <p style="font-size:13px;color:var(--text-2);margin-bottom:16px">視聴者を「物語の当事者」にする</p>
 
       <p style="font-size:15px;color:var(--text-2);line-height:2;margin-bottom:16px">
@@ -1148,13 +1145,13 @@ footer{
 
       <div class="insert-grid" style="margin-bottom:16px">
         <div class="insert-card verb" style="border-color:rgba(100,100,200,.4)">
-          <div class="insert-card-label" style="color:var(--indigo)">① 言語による共感（聴覚）</div>
+          <div class="insert-card-label" style="color:var(--cyan)">① 言語による共感（聴覚）</div>
           <h4>言葉で共感を生む</h4>
           <p>失敗・苦労・挫折・弱さを語る言葉が、視聴者の過去の経験と結びついたとき共感が生まれる。</p>
           <div class="insert-example">例：「昔は全然うまくいかなくて…」「正直あの時は本当に辛かった」<br><br>重要：抽象的な話ではなく具体的な実体験であること。人は抽象に共感しない。</div>
         </div>
         <div class="insert-card noun" style="border-color:rgba(100,100,200,.4)">
-          <div class="insert-card-label" style="color:var(--indigo)">② 視覚による共感（映像）</div>
+          <div class="insert-card-label" style="color:var(--cyan)">② 視覚による共感（映像）</div>
           <h4>映像で共感を生む</h4>
           <p>人は言葉より映像の方が共感しやすい。「昔は大変だった」と言うより、昔の写真・映像を見せる方が共感は強くなる。</p>
           <div class="insert-example">使える素材：苦労・失敗している姿 / 辛そうな表情 / 過去の写真・映像 / リアクション</div>
@@ -1162,7 +1159,7 @@ footer{
       </div>
 
       <div class="highlight" style="background:rgba(100,100,200,.07);border-color:rgba(100,100,200,.25)">
-        <p><strong style="color:var(--indigo)">ミラーニューロンは編集だけでは作れない。</strong>素材はインタビュー・過去写真・Bロールの中にすでに存在している。編集者の仕事は ①共感できる素材を見つけ、②正しいタイミングに配置し、③共感の流れを壊さないように編集すること。</p>
+        <p><strong style="color:var(--cyan)">ミラーニューロンは編集だけでは作れない。</strong>素材はインタビュー・過去写真・Bロールの中にすでに存在している。編集者の仕事は ①共感できる素材を見つけ、②正しいタイミングに配置し、③共感の流れを壊さないように編集すること。</p>
       </div>
     </div>
 
@@ -1179,14 +1176,14 @@ footer{
       脳は体の中で最もエネルギーを消費する器官だ。同じ脳の部位を30秒以上使い続けると省エネモードに入る——つまり集中力が切れて離脱が起きる。だから編集は「30秒ごとに新しい刺激（＝新しい脳の部位への切り替え）を届ける」意識で作る。
     </p>
 
-    <div style="background:rgba(0,0,0,.04);border:1px solid var(--border);border-radius:8px;padding:24px 28px;margin-bottom:16px">
+    <div style="background:var(--bg-4);border:1px solid var(--border-2);border-radius:8px;padding:24px 28px;margin-bottom:16px">
       <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">30秒の塊の構造（動画全体で繰り返す）</div>
       <div class="flow" style="flex-wrap:wrap">
         <div class="flow-step" style="background:rgba(232,52,28,.15);border:1px solid rgba(232,52,28,.3);color:var(--danger)">扁桃体を刺激<br><span style="font-size:10px;opacity:.8">感情・自分ごと化</span></div>
         <div class="flow-arrow">→</div>
         <div class="flow-step" style="background:rgba(200,169,110,.15);border:1px solid rgba(200,169,110,.3);color:var(--warn)">大脳辺縁系へ<br><span style="font-size:10px;opacity:.8">続きを見たくなる</span></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-step" style="background:rgba(100,100,200,.15);border:1px solid rgba(100,100,200,.3);color:var(--indigo)">問いを残す<br><span style="font-size:10px;opacity:.8">次の塊へ</span></div>
+        <div class="flow-step" style="background:rgba(100,100,200,.15);border:1px solid rgba(100,100,200,.3);color:var(--cyan)">問いを残す<br><span style="font-size:10px;opacity:.8">次の塊へ</span></div>
         <div class="flow-arrow">→</div>
         <div class="flow-step" style="background:rgba(0,0,0,.06);border:1px solid #ccc;color:var(--text-2)">繰り返す<br><span style="font-size:10px;opacity:.8">最後まで</span></div>
       </div>
@@ -1203,7 +1200,7 @@ footer{
       「エンタメ化」とは、前頭前野の情報を大脳辺縁系で楽しめる形に変換することだ。
     </p>
 
-    <div style="background:rgba(0,0,0,.04);border:1px solid var(--border);padding:24px 28px;margin-bottom:28px">
+    <div style="background:var(--bg-4);border:1px solid var(--border-2);padding:24px 28px;margin-bottom:28px">
       <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">エンタメ化の構造（ジェットコースター型）</div>
       <div class="flow" style="flex-wrap:wrap">
         <div class="flow-step">話の軸<br><span style="font-size:10px;opacity:.8">前頭前野</span></div>
@@ -1435,7 +1432,7 @@ footer{
     </div>
 
     <!-- 三層構造の概観 -->
-    <div style="background:rgba(0,0,0,.03);border:1px solid var(--border);border-radius:8px;padding:24px 28px;margin-bottom:48px">
+    <div style="background:var(--bg-4);border:1px solid var(--border-2);border-radius:8px;padding:24px 28px;margin-bottom:48px">
       <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">視聴維持率の高い動画の三層構造</div>
       <div class="flow">
         <div class="flow-step" style="padding:14px 20px">① 大きな物語<br><span style="font-size:11px;opacity:.7">動画全体の構成</span></div>
@@ -1472,7 +1469,7 @@ footer{
     </div>
 
     <div class="highlight" style="margin-bottom:48px">
-      <p><strong style="color:var(--accent)">インサートは「情報を見せるもの」ではなく「行動を追体験させる装置」だ。</strong>脳は物語の形で情報を受け取ると、疲れず・自然な順序で理解でき・感情と一緒に記憶される。だから複数カットで「行動の流れ」を作ることが基本になる。</p>
+      <p><strong>インサートは「情報を見せるもの」ではなく「行動を追体験させる装置」だ。</strong>脳は物語の形で情報を受け取ると、疲れず・自然な順序で理解でき・感情と一緒に記憶される。だから複数カットで「行動の流れ」を作ることが基本になる。</p>
     </div>
 
     <!-- ======= PART 2: 世界観を操作する ======= -->
@@ -1531,7 +1528,7 @@ footer{
 
     <div class="insert-grid" style="margin-bottom:32px">
       <div class="insert-card verb" style="border-color:rgba(0,80,200,.3)">
-        <div class="insert-card-label" style="color:var(--accent)">情報インサート（前頭前野に届ける）</div>
+        <div class="insert-card-label">情報インサート（前頭前野に届ける）</div>
         <h4>「何の話か」を理解させる</h4>
         <p>視聴者が状況・場所・物事を把握するために必要なインサート。理解を助けるが、感情は動かしにくい。</p>
         <div class="insert-example">
@@ -1551,7 +1548,7 @@ footer{
     </div>
 
     <!-- 配置のルール -->
-    <div style="background:rgba(0,0,0,.03);border:1px solid var(--border);border-radius:8px;padding:24px 28px;margin-bottom:32px">
+    <div style="background:var(--bg-4);border:1px solid var(--border-2);border-radius:8px;padding:24px 28px;margin-bottom:32px">
       <div style="font-family:'Bebas Neue',cursive;font-size:16px;color:var(--text);letter-spacing:.1em;margin-bottom:16px">プロの配置ルール</div>
       <div style="display:grid;gap:12px">
         <div style="display:flex;gap:12px;align-items:flex-start">
@@ -1682,13 +1679,13 @@ footer{
             <td><strong>サブ映像素材・インサート</strong></td>
             <td style="font-size:12px;color:var(--text-2)">V1の上に重ねて場面を補完する</td>
           </tr>
-          <tr style="background:var(--accent-l)">
+          <tr style="background:rgba(232,197,71,.06)">
             <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--accent)">V1</td>
             <td><strong>メイン映像素材</strong>　← 基本はここだけ</td>
             <td style="font-size:12px;color:var(--text-2)">インタビュー・メインの撮影素材</td>
           </tr>
           <tr><td colspan="3" style="background:var(--border);height:2px;padding:0"></td></tr>
-          <tr style="background:var(--accent-l)">
+          <tr style="background:rgba(232,197,71,.06)">
             <td style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:.05em;color:var(--accent)">A1</td>
             <td><strong>メイン音声</strong></td>
             <td style="font-size:12px;color:var(--text-2)">インタビュー・メイン発話。ノイズ処理済み</td>
@@ -1772,8 +1769,8 @@ footer{
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:120px 1fr;border:1px solid var(--border);border-bottom:none;background:var(--accent-l)">
-        <div style="background:var(--accent-l);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 10px;border-right:2px solid var(--accent)">
+      <div style="display:grid;grid-template-columns:120px 1fr;border:1px solid var(--border);border-bottom:none;background:rgba(232,197,71,.06)">
+        <div style="background:rgba(232,197,71,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 10px;border-right:2px solid var(--accent)">
           <span style="font-family:'Bebas Neue',cursive;font-size:26px;color:var(--accent);line-height:1">60秒</span>
           <span style="font-family:'Bebas Neue',cursive;font-size:9px;letter-spacing:.2em;color:rgba(14,165,233,.5);margin-top:4px">SCENE</span>
         </div>
@@ -1786,12 +1783,12 @@ footer{
       <div style="display:grid;grid-template-columns:120px 1fr;border:1px solid var(--border)">
         <div style="background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 10px;border-right:2px solid #2050C8">
           <span style="font-family:'Bebas Neue',cursive;font-size:26px;color:var(--accent);line-height:1">180秒</span>
-          <span style="font-family:'Bebas Neue',cursive;font-size:9px;letter-spacing:.2em;color:var(--accent-d);margin-top:4px">CORE</span>
+          <span style="font-family:'Bebas Neue',cursive;font-size:9px;letter-spacing:.2em;color:var(--accent);margin-top:4px">CORE</span>
         </div>
         <div style="padding:16px 20px">
           <p style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">訴求パート — 最も伝えたいことは180秒</p>
           <p style="font-size:13px;color:var(--text-2);line-height:1.85">動画の中で最も伝えたいコアメッセージを届けるパート。ここまでに扁桃体→大脳辺縁系→ミラーニューロンと刺激が積み上がり、<strong style="color:var(--text)">前頭前野が受け取れる準備ができている</strong>ため少し長くても大丈夫。</p>
-          <div style="margin-top:10px;padding:9px 12px;background:var(--accent-l);border-left:2px solid var(--accent-d)">
+          <div style="margin-top:10px;padding:9px 12px;background:rgba(232,197,71,.06);border-left:2px solid var(--blue)">
             <p style="font-size:12px;color:var(--accent);line-height:1.8">30秒ルールは有効。<strong>180秒の中に30秒のブロックが6つ</strong>＝6回話題が変わる構造が必要。「最も伝えたい話」を6つの角度から届けるイメージで設計する。</p>
           </div>
         </div>
@@ -1799,18 +1796,18 @@ footer{
     </div>
 
     <!-- サマリーバー -->
-    <div style="background:var(--bg-4);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:36px">
+    <div style="background:var(--bg-4);border:1px solid var(--border-2);border-radius:var(--r);padding:16px 20px;margin-bottom:36px">
       <p style="font-family:'Bebas Neue',cursive;font-size:10px;letter-spacing:.28em;color:var(--text-3);margin-bottom:12px">4つの尺のまとめ</p>
       <div style="display:flex;gap:0;flex-wrap:wrap">
-        <div style="flex:1;min-width:72px;text-align:center;padding:8px;border-right:1px solid var(--border)">
+        <div style="flex:1;min-width:72px;text-align:center;padding:8px;border-right:1px solid var(--border-2)">
           <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--accent)">3〜5秒</div>
           <div style="font-size:10px;color:var(--text-3);margin-top:2px">インサート</div>
         </div>
-        <div style="flex:1;min-width:72px;text-align:center;padding:8px;border-right:1px solid var(--border)">
+        <div style="flex:1;min-width:72px;text-align:center;padding:8px;border-right:1px solid var(--border-2)">
           <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--warn)">15秒</div>
           <div style="font-size:10px;color:var(--text-3);margin-top:2px">VLOG</div>
         </div>
-        <div style="flex:1;min-width:72px;text-align:center;padding:8px;border-right:1px solid var(--border);background:var(--accent-l)">
+        <div style="flex:1;min-width:72px;text-align:center;padding:8px;border-right:1px solid var(--border-2);background:rgba(232,197,71,.06)">
           <div style="font-family:'Bebas Neue',cursive;font-size:20px;color:var(--accent)">60秒</div>
           <div style="font-size:10px;color:var(--text-3);margin-top:2px">本編シーン</div>
         </div>
@@ -1860,17 +1857,17 @@ footer{
 
     <!-- 構成シート参照ボックス -->
     <div style="background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin-bottom:40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-      <div style="width:40px;height:40px;border-radius:10px;background:var(--grad-blue);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+      <div style="width:40px;height:40px;border-radius:10px;background:var(--grad-main);display:flex;align-items:center;justify-content:center;flex-shrink:0">
         <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
       <div style="flex:1;min-width:200px">
-        <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--grad-blue);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px">REFERENCE SHEET</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px">REFERENCE SHEET</div>
         <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px">【構成原本】スプレッドシート</div>
         <div style="font-size:12px;color:var(--text-2);line-height:1.7">構成を作る際はこのシートをテンプレートとして使用すること。各動画の1語ゴール・エンジン・構成設計をここに記録する。</div>
       </div>
       <a href="https://docs.google.com/spreadsheets/d/13tCqd1wqkjKv9HcG1ip3h4pU-AVG3dvNIA8PXuD_4Dg/edit?usp=sharing"
          target="_blank"
-         style="font-size:12px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--grad-blue);padding:10px 20px;border-radius:var(--r-sm);text-decoration:none;white-space:nowrap;display:inline-block;flex-shrink:0;box-shadow:0 4px 12px rgba(14,165,233,.3)">
+         style="font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--bg);background:var(--grad-main);padding:10px 20px;border-radius:var(--r-sm);text-decoration:none;white-space:nowrap;display:inline-block;flex-shrink:0;box-shadow:0 4px 12px rgba(232,197,71,.25)">
         シートを開く →
       </a>
     </div>
@@ -1988,7 +1985,7 @@ footer{
         <div class="char-body">主人公に気づきや勇気を与える人。動画では「アドバイスをくれる人」「師匠」「先輩」として登場することが多い。</div>
       </div>
       <div class="char-item">
-        <span class="char-badge" style="background:rgba(42,122,75,.15);color:var(--ok);border:1px solid rgba(42,122,75,.3)">対照的存在</span>
+        <span class="char-badge" style="background:rgba(74,222,128,.08);color:var(--ok);border:1px solid rgba(74,222,128,.25)">対照的存在</span>
         <div class="char-body">主人公の選択や考え方を際立たせる存在。「この人みたいにはなりたくない」「この人みたいになれるかも」という比較を作る。</div>
       </div>
       <div class="char-item">
@@ -2144,14 +2141,14 @@ footer{
 
 <!-- FOOTER -->
 <footer>
-  <div style="width:48px;height:3px;border-radius:3px;margin:0 auto 24px;background:var(--grad-ig)"></div>
-  <div style="font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:.22em;margin-bottom:10px;
-    background:var(--grad-ig);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">FLIP THE BIRD</div>
-  <div style="font-size:12px;font-weight:500;color:var(--text-3);letter-spacing:.08em;margin-bottom:20px">EDITING AS BRAIN SCIENCE. — 社会に中指を立てる作品を — © 2025</div>
-  <div style="display:flex;justify-content:center;gap:6px">
-    <span style="width:6px;height:6px;border-radius:50%;background:var(--sky);display:inline-block"></span>
-    <span style="width:6px;height:6px;border-radius:50%;background:var(--indigo);display:inline-block"></span>
-    <span style="width:6px;height:6px;border-radius:50%;background:var(--pink);display:inline-block"></span>
+  <div style="width:40px;height:1px;margin:0 auto 32px;background:var(--grad-main)"></div>
+  <div style="font-family:'Bebas Neue',cursive;font-size:32px;letter-spacing:.28em;margin-bottom:12px;
+    background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">FLIP THE BIRD</div>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px">Editing As Brain Science. — 社会に中指を立てる作品を — © 2025</div>
+  <div style="display:flex;justify-content:center;gap:8px">
+    <span style="width:4px;height:4px;border-radius:50%;background:var(--danger);display:inline-block"></span>
+    <span style="width:4px;height:4px;border-radius:50%;background:var(--accent);display:inline-block"></span>
+    <span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);display:inline-block"></span>
   </div>
 </footer>
 
