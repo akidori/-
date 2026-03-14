@@ -1447,54 +1447,194 @@ code, .dm-mono {
       </div>
     </div>
 
-    <!-- 大きなフロー図 -->
+    <!-- 大きなフロー図 (アコーディオン版) -->
+    <style>
+      .stim-accordion { display:flex;flex-direction:column;gap:6px; }
+      .stim-item { overflow:hidden; }
+      .stim-header {
+        display:grid;grid-template-columns:36px 1fr 28px;gap:0;align-items:center;
+        cursor:pointer;user-select:none;transition:opacity .15s;
+      }
+      .stim-header:hover { opacity:.85; }
+      .stim-chevron {
+        text-align:center;font-size:11px;color:var(--text-3);
+        transition:transform .25s;
+      }
+      .stim-item.open .stim-chevron { transform:rotate(180deg); }
+      .stim-panel {
+        max-height:0;overflow:hidden;
+        transition:max-height .35s ease;
+      }
+      .stim-item.open .stim-panel { max-height:600px; }
+      .stim-panel-inner {
+        margin-left:36px;padding:0 0 14px 0;
+        display:grid;grid-template-columns:1fr 1fr;gap:10px;
+      }
+      @media(max-width:600px){ .stim-panel-inner { grid-template-columns:1fr; } }
+      .stim-detail-box {
+        padding:13px 15px;font-size:12px;line-height:1.85;color:var(--text-2);
+      }
+      .stim-detail-label {
+        font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;
+        font-weight:600;margin-bottom:6px;
+      }
+    </style>
     <div style="background:var(--bg);padding:28px 24px;margin-bottom:8px">
-      <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.3em;color:var(--text-3);margin-bottom:20px">STIMULATION ORDER — 刺激する順番</p>
-      <div style="display:flex;flex-direction:column;gap:8px">
+      <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.3em;color:var(--text-3);margin-bottom:6px">STIMULATION ORDER — 刺激する順番</p>
+      <p style="font-size:11px;color:var(--text-3);margin-bottom:20px">▶ 各項目をクリックすると詳細が開きます</p>
+      <div class="stim-accordion">
 
-        <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">①</div>
-          <div style="background:rgba(232,68,68,.12);border-left:2px solid var(--danger);padding:12px 16px">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--danger);letter-spacing:.05em">扁桃体</div>
-            <div style="font-size:12px;color:var(--text-2);margin-top:2px">感情を動かす / 自分ごと化 / フック</div>
+        <!-- ① 扁桃体 -->
+        <div class="stim-item" onclick="this.classList.toggle('open')">
+          <div class="stim-header">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">①</div>
+            <div style="background:rgba(232,68,68,.12);border-left:2px solid var(--danger);padding:12px 16px">
+              <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--danger);letter-spacing:.05em">扁桃体</div>
+              <div style="font-size:12px;color:var(--text-2);margin-top:2px">感情を動かす / 自分ごと化 / フック</div>
+            </div>
+            <div class="stim-chevron">▼</div>
           </div>
-          <div style="width:28px;text-align:center;font-size:10px;color:var(--text-3)">▼</div>
+          <div class="stim-panel">
+            <div class="stim-panel-inner">
+              <div class="stim-detail-box" style="background:rgba(232,68,68,.06);border:1px solid rgba(232,68,68,.18)">
+                <div class="stim-detail-label" style="color:var(--danger)">🧠 脳科学</div>
+                扁桃体は「これは自分に関係あるか？」を0.1秒以内に判断する。感情の入口。ここを通過しないと、脳は情報を「自分ごと」として受け取らない。喜び・恐怖・怒り・悲しみ——どの感情でもいい。とにかく<strong style="color:var(--text)">感情が動けば突破できる。</strong>
+              </div>
+              <div class="stim-detail-box" style="background:rgba(232,68,68,.04);border:1px solid rgba(232,68,68,.12)">
+                <div class="stim-detail-label" style="color:var(--danger)">📣 マーケティング視点</div>
+                広告でいう「ファーストビュー」。人はサムネとタイトルの感情的インパクトで動画を開くか判断する。<br><br>
+                「この人、やばいことになってる」「これ、自分も同じだ」——<strong style="color:var(--text)">自分ごと化のフックが刺さった瞬間、再生数は上がる。</strong><br><br>
+                購買心理学では「感情が先、理由は後付け」とされている。扁桃体を動かさない広告は一切見られない。
+              </div>
+              <div class="stim-detail-box" style="background:var(--bg-3);border:1px solid var(--border);grid-column:1/-1">
+                <div class="stim-detail-label" style="color:var(--text-2)">🎬 編集での使い方</div>
+                冒頭0〜10秒に必ず入れる。強い感情の表情・葛藤・驚きの事実・「失敗」や「危機」の匂わせ。
+                強調テロップで「この動画を見ないと損」という状況を作り出す。
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">②</div>
-          <div style="background:rgba(232,197,71,.08);border-left:3px solid var(--warn);padding:12px 16px">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--warn);letter-spacing:.05em">大脳辺縁系</div>
-            <div style="font-size:12px;color:var(--text-2);margin-top:2px">ドーパミン / 続きを見たくなる / 期待感</div>
+        <!-- ② 大脳辺縁系 -->
+        <div class="stim-item" onclick="this.classList.toggle('open')">
+          <div class="stim-header">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">②</div>
+            <div style="background:rgba(232,197,71,.08);border-left:3px solid var(--warn);padding:12px 16px">
+              <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--warn);letter-spacing:.05em">大脳辺縁系</div>
+              <div style="font-size:12px;color:var(--text-2);margin-top:2px">ドーパミン / 続きを見たくなる / 期待感</div>
+            </div>
+            <div class="stim-chevron">▼</div>
           </div>
-          <div style="width:28px;text-align:center;font-size:10px;color:var(--text-3)">▼</div>
+          <div class="stim-panel">
+            <div class="stim-panel-inner">
+              <div class="stim-detail-box" style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.18)">
+                <div class="stim-detail-label" style="color:var(--warn)">🧠 脳科学</div>
+                大脳辺縁系はドーパミンを出す場所。「期待」と「報酬」を管理する。<br><br>ポイントは<strong style="color:var(--text)">「報酬をもらう瞬間」よりも「報酬の予感」の方がドーパミンが多く出る</strong>こと。つまり「このあとどうなるんだろう？」という宙ぶらりん状態こそが、続きを見させる燃料になる。
+              </div>
+              <div class="stim-detail-box" style="background:rgba(232,197,71,.04);border:1px solid rgba(232,197,71,.12)">
+                <div class="stim-detail-label" style="color:var(--warn)">📣 マーケティング視点</div>
+                「続きはWebで」「最後まで見ると〇〇がわかります」——これは全て大脳辺縁系へのアプローチ。<br><br>
+                NetflixやYouTubeの自動再生も、「次のエピソードへの期待感（ドーパミン）」を利用している。<br><br>
+                <strong style="color:var(--text)">謎・伏線・宣言</strong>を30秒ごとに仕込むことで、視聴維持率が劇的に変わる。
+              </div>
+              <div class="stim-detail-box" style="background:var(--bg-3);border:1px solid var(--border);grid-column:1/-1">
+                <div class="stim-detail-label" style="color:var(--text-2)">🎬 編集での使い方</div>
+                アバン（次のセクションへの引き）の設計。「この後、信じられないことが起きます」「実は〇〇だった」という宣言を節目ごとに入れる。BGMのテンションアップも大脳辺縁系への刺激。
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">③</div>
-          <div style="background:rgba(232,197,71,.06);border-left:2px solid var(--accent);padding:12px 16px">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--cyan);letter-spacing:.05em">ミラーニューロン</div>
-            <div style="font-size:12px;color:var(--text-2);margin-top:2px">当事者になる / 共感 / 没入</div>
+        <!-- ③ ミラーニューロン -->
+        <div class="stim-item" onclick="this.classList.toggle('open')">
+          <div class="stim-header">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">③</div>
+            <div style="background:rgba(14,165,233,.07);border-left:2px solid var(--cyan);padding:12px 16px">
+              <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--cyan);letter-spacing:.05em">ミラーニューロン</div>
+              <div style="font-size:12px;color:var(--text-2);margin-top:2px">当事者になる / 共感 / 没入</div>
+            </div>
+            <div class="stim-chevron">▼</div>
           </div>
-          <div style="width:28px;text-align:center;font-size:10px;color:var(--text-3)">▼</div>
+          <div class="stim-panel">
+            <div class="stim-panel-inner">
+              <div class="stim-detail-box" style="background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.18)">
+                <div class="stim-detail-label" style="color:var(--cyan)">🧠 脳科学</div>
+                ミラーニューロンは「他人の体験を自分のことのように感じる」神経細胞。誰かが痛がっていると自分も痛く感じる——これがミラーニューロンの働き。<br><br>
+                <strong style="color:var(--text)">ドキュメンタリーが「フィクションより感動する」のは、ここに本物が届くから。</strong>作られた感情と、本物の感情では、脳の反応が全く違う。
+              </div>
+              <div class="stim-detail-box" style="background:rgba(14,165,233,.04);border:1px solid rgba(14,165,233,.12)">
+                <div class="stim-detail-label" style="color:var(--cyan)">📣 マーケティング視点</div>
+                口コミ・UGC（一般人のレビュー動画）が企業広告より効果的なのは、ミラーニューロンへのアクセスが強いから。<br><br>
+                「before/after」「密着型コンテンツ」「失敗談」——全て視聴者に<strong style="color:var(--text)">「自分ならどうする？」</strong>と考えさせ、当事者として引き込む手法。<br><br>
+                感情移入が起きた瞬間、商品への信頼が急上昇する。
+              </div>
+              <div class="stim-detail-box" style="background:var(--bg-3);border:1px solid var(--border);grid-column:1/-1">
+                <div class="stim-detail-label" style="color:var(--text-2)">🎬 編集での使い方</div>
+                表情のアップ（特に目・口元）。感情が動いている瞬間を長めに残す。音声を消して顔だけ見せる編集も有効。手持ちカメラの臨場感、生々しいやりとり——「作られていない空気」を前面に出す。
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">④</div>
-          <div style="background:rgba(74,158,255,.08);border-left:2px solid var(--blue);padding:12px 16px">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--accent);letter-spacing:.05em">前頭前野</div>
-            <div style="font-size:12px;color:var(--text-2);margin-top:2px">論理・理解 / なるほど / 情報処理</div>
+        <!-- ④ 前頭前野 -->
+        <div class="stim-item" onclick="this.classList.toggle('open')">
+          <div class="stim-header">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">④</div>
+            <div style="background:rgba(74,158,255,.08);border-left:2px solid var(--blue);padding:12px 16px">
+              <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--accent);letter-spacing:.05em">前頭前野</div>
+              <div style="font-size:12px;color:var(--text-2);margin-top:2px">論理・理解 / なるほど / 情報処理</div>
+            </div>
+            <div class="stim-chevron">▼</div>
           </div>
-          <div style="width:28px;text-align:center;font-size:10px;color:var(--text-3)">▼</div>
+          <div class="stim-panel">
+            <div class="stim-panel-inner">
+              <div class="stim-detail-box" style="background:rgba(74,158,255,.06);border:1px solid rgba(74,158,255,.18)">
+                <div class="stim-detail-label" style="color:var(--accent)">🧠 脳科学</div>
+                前頭前野は人間だけが異様に発達している部位。論理・判断・計画・衝動の抑制——「人間らしさ」のほぼすべてがここにある。<br><br>
+                エネルギー消費が最も重く、疲れやすい。<strong style="color:var(--text)">だから①〜③で感情・期待・共感を先に作ってからでないと、論理情報は受け取ってもらえない。</strong>
+              </div>
+              <div class="stim-detail-box" style="background:rgba(74,158,255,.04);border:1px solid rgba(74,158,255,.12)">
+                <div class="stim-detail-label" style="color:var(--accent)">📣 マーケティング視点</div>
+                スペック・データ・比較表——これらは全て前頭前野へのアプローチ。「なぜこの商品が良いか」の理由付け。<br><br>
+                ただし、感情が動いていない状態でスペックを見せても<strong style="color:var(--text)">「読まれない」。</strong><br><br>
+                Appleが「スペックより体験」を先に見せる理由がここにある。感情 → 論理の順番が正解。
+              </div>
+              <div class="stim-detail-box" style="background:var(--bg-3);border:1px solid var(--border);grid-column:1/-1">
+                <div class="stim-detail-label" style="color:var(--text-2)">🎬 編集での使い方</div>
+                解説・データ・専門家コメント・図解テロップ——これらは動画の中盤以降に置く。冒頭に置くと視聴者は処理できずに離脱する。感情が動いた状態なら、複雑な情報も受け取ってもらえる。
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:36px 1fr auto;gap:0;align-items:center">
-          <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">⑤</div>
-          <div style="background:rgba(74,222,128,.08);border-left:2px solid var(--ok);padding:12px 16px">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--ok);letter-spacing:.05em">海馬</div>
-            <div style="font-size:12px;color:var(--text-2);margin-top:2px">長期記憶 / 人生を変える / 行動変容</div>
+        <!-- ⑤ 海馬 -->
+        <div class="stim-item" onclick="this.classList.toggle('open')">
+          <div class="stim-header">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:13px;color:var(--text-3);text-align:center">⑤</div>
+            <div style="background:rgba(74,222,128,.08);border-left:2px solid var(--ok);padding:12px 16px">
+              <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:16px;color:var(--ok);letter-spacing:.05em">海馬</div>
+              <div style="font-size:12px;color:var(--text-2);margin-top:2px">長期記憶 / 人生を変える / 行動変容</div>
+            </div>
+            <div class="stim-chevron" style="font-size:11px;color:var(--text-3);text-align:center">▼</div>
           </div>
-          <div style="width:28px"></div>
+          <div class="stim-panel">
+            <div class="stim-panel-inner">
+              <div class="stim-detail-box" style="background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.18)">
+                <div class="stim-detail-label" style="color:var(--ok)">🧠 脳科学</div>
+                海馬は「記憶の司書」。体験した情報を長期記憶として保存するかどうかを決める。<br><br>
+                記憶に残る条件は「感情と一緒に体験した情報」。①〜④をしっかり刺激した動画は、海馬が「これは大事な体験だ」と判断して記憶に残す。<strong style="color:var(--text)">感情を伴わない情報は翌日には消える。</strong>
+              </div>
+              <div class="stim-detail-box" style="background:rgba(74,222,128,.04);border:1px solid rgba(74,222,128,.12)">
+                <div class="stim-detail-label" style="color:var(--ok)">📣 マーケティング視点</div>
+                ブランドの「記憶への定着」がここ。一度見ただけでは海馬は動かない。<strong style="color:var(--text)">感情を乗せた体験の繰り返し</strong>がブランド記憶を作る。<br><br>
+                「あの動画見て、人生変わりました」というコメントは、海馬まで届いた証拠。チャンネル登録・購買・行動変容——最終的なコンバージョンはすべて海馬が鍵を握っている。
+              </div>
+              <div class="stim-detail-box" style="background:var(--bg-3);border:1px solid var(--border);grid-column:1/-1">
+                <div class="stim-detail-label" style="color:var(--text-2)">🎬 編集での使い方</div>
+                エンディングの設計。「結局、何が言いたかったのか」を感情と一緒に締める。視聴者が「次も見たい」と思う終わり方＝次回予告・問いかけ・余韻——これが海馬への最後の刺激。
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -3116,6 +3256,139 @@ code, .dm-mono {
 <!-- CH10 テロップ設計 -->
 <section id="ch10" style="padding-top:52px" class="sec">
   <div class="container">
+
+    <!-- ===== 動画構成の作り方 ===== -->
+    <div style="margin-bottom:60px">
+
+      <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.4em;color:var(--accent);display:block;margin-bottom:10px;border-bottom:1.5px solid var(--accent);padding-bottom:4px;width:fit-content">SECTION 00</span>
+      <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(24px,4vw,36px);color:var(--text);letter-spacing:.03em;margin-bottom:24px;line-height:1.2">動画の構成を、<br>超シンプルに理解する</h3>
+
+      <!-- 動画とは何か -->
+      <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);border-left:2px solid var(--accent);padding:20px 24px;margin-bottom:28px">
+        <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.22em;color:var(--accent);margin-bottom:10px">FIRST PRINCIPLE</p>
+        <p style="font-size:18px;font-weight:700;color:var(--text);line-height:1.7">動画とは「物語」です。</p>
+        <p style="font-size:14px;color:var(--text-2);line-height:2;margin-top:10px">
+          写真を並べたものは「物語」ではありません。ただの「静止画の連続」です。<br>
+          動画が動画である理由は、<strong style="color:var(--text)">時間の流れの中にストーリーがある</strong>から。
+        </p>
+      </div>
+
+      <!-- 主語と述語 -->
+      <h4 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:18px;color:var(--text);letter-spacing:.04em;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">物語の基本：主語と述語</h4>
+      <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:16px">
+        どんな物語にも「<strong style="color:var(--text)">誰が（主語）</strong>」「<strong style="color:var(--text)">どうした（述語）</strong>」があります。これだけで話が成立します。
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+        <div style="background:var(--bg-3);border:1px solid var(--border-2);padding:18px 20px;text-align:center">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--text-3);margin-bottom:10px">情報だけ（面白くない）</div>
+          <p style="font-size:15px;color:var(--text-2);line-height:2">「社長が」「泣いた」</p>
+          <p style="font-size:12px;color:var(--text-3);margin-top:8px">伝わる。でも刺さらない。</p>
+        </div>
+        <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.25);padding:18px 20px;text-align:center">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--accent);margin-bottom:10px">装飾あり（面白い）</div>
+          <p style="font-size:15px;color:var(--text);line-height:2">「3日間眠れなかった社長が」<br>「声を上げて泣いた」</p>
+          <p style="font-size:12px;color:var(--text-2);margin-top:8px">感情が動く。記憶に残る。</p>
+        </div>
+      </div>
+
+      <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:28px">
+        「3日間眠れなかった」という<strong style="color:var(--text)">装飾（形容詞）</strong>が加わることで、感情が生まれます。<br>
+        構成の仕事は「<strong style="color:var(--text)">主語と述語（骨格）を決め、装飾（肉）をどこに入れるか</strong>を設計すること」です。
+      </p>
+
+      <!-- 動画の構造図 -->
+      <div style="background:var(--bg-3);border:1px solid var(--border);padding:22px 24px;margin-bottom:36px">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--text-3);margin-bottom:16px">STRUCTURE</p>
+        <div style="display:flex;gap:0;align-items:stretch;flex-wrap:wrap">
+          <div style="flex:1;min-width:140px;padding:16px 18px;background:rgba(232,68,68,.08);border:1px solid rgba(232,68,68,.2);text-align:center">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--danger);margin-bottom:6px">主語 ＋ 述語</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.7">動画の「骨格」<br>これがないと物語にならない</div>
+          </div>
+          <div style="width:1px;background:var(--border)"></div>
+          <div style="flex:1;min-width:140px;padding:16px 18px;background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);text-align:center">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--accent);margin-bottom:6px">装飾（形容詞）</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.7">動画の「面白さ」<br>感情・エンタメ・没入感</div>
+          </div>
+          <div style="width:1px;background:var(--border)"></div>
+          <div style="flex:1;min-width:140px;padding:16px 18px;background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.18);text-align:center">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--ok);margin-bottom:6px">＝ 構成</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.7">「何をどこに置くか」を<br>設計すること</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- テロップ入力の正しい順番 -->
+      <h4 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:18px;color:var(--text);letter-spacing:.04em;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border)">テロップを入れる「正しい順番」</h4>
+      <p style="font-size:13px;color:var(--text-2);line-height:1.9;margin-bottom:20px">テロップ作業の質は、この順番を守っているかどうかで大きく変わります。</p>
+
+      <!-- NG -->
+      <div style="background:rgba(232,68,68,.05);border:1px solid rgba(232,68,68,.2);border-left:2px solid var(--danger);padding:16px 20px;margin-bottom:20px">
+        <p style="font-size:11px;color:var(--danger);font-weight:700;letter-spacing:.1em;margin-bottom:10px">✗ NG — よくある間違い</p>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--text-2)">
+          <div>❌ 字幕から先に入れている</div>
+          <div>❌ 「強そうな言葉」に強調テロップをとりあえず入れている</div>
+        </div>
+      </div>
+
+      <!-- 正しい順番 STEP -->
+      <div style="display:flex;flex-direction:column;gap:8px">
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
+          <div style="background:rgba(232,68,68,.12);border:1px solid rgba(232,68,68,.3);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--danger)">STEP<br>1</span>
+          </div>
+          <div style="padding:14px 18px;background:rgba(232,68,68,.06);border:1px solid rgba(232,68,68,.15);border-left:none">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--danger);margin-bottom:4px">主語テロップ（強調テロップ）</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.85">「誰が・何が」の部分。一番目立つ強調テロップで表示する。<br>これが動画の「骨」になる。ここが弱いと何の話かわからなくなる。</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
+          <div style="background:rgba(232,197,71,.15);border:1px solid rgba(232,197,71,.35);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--warn)">STEP<br>2</span>
+          </div>
+          <div style="padding:14px 18px;background:rgba(232,197,71,.05);border:1px solid rgba(232,197,71,.15);border-left:none">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--warn);margin-bottom:4px">述語テロップ</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.85">
+              「どうした」の部分。2パターンある：<br>
+              <span style="color:var(--text)">• 言葉だけで伝わる</span> → 強調テロップ<br>
+              <span style="color:var(--text)">• 言葉だけでは難しい</span> → 補足説明テロップ（言い換えや解説を添える）
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
+          <div style="background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--cyan)">STEP<br>3</span>
+          </div>
+          <div style="padding:14px 18px;background:rgba(14,165,233,.05);border:1px solid rgba(14,165,233,.12);border-left:none">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--cyan);margin-bottom:4px">装飾テロップ ＆ インサート</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.85">
+              主語・述語を盛り上げるための「肉付け」。<br>
+              考え方：「<strong style="color:var(--text)">この場面を盛り上げるには、何があればいいか？</strong>」<br>
+              感情を強化するインサート映像・効果テロップ・BGMチェンジなどを入れる。
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
+          <div style="background:rgba(100,116,139,.12);border:1px solid rgba(100,116,139,.25);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--text-2)">STEP<br>4</span>
+          </div>
+          <div style="padding:14px 18px;background:var(--bg-3);border:1px solid var(--border);border-left:none">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--text);margin-bottom:4px">字幕テロップ（最後）</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.85">
+              字幕はあくまで「おまけ」。<strong style="color:var(--text)">「音声がなくても・字幕がなくても伝わる」</strong>状態を作ってから入れる。<br>
+              STEP1〜3がなければ、字幕だけ入れても意味がない。字幕は補足であり、軸ではない。
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="sec-divider" style="margin-bottom:48px">
 
     <!-- テロップ比較ビジュアル -->
     <div style="margin:28px 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)">
