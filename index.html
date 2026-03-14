@@ -1006,13 +1006,13 @@ code, .dm-mono {
     <div class="nav-divider"></div>
     <a href="#ch06" class="nav-item">CH06 タイムライン</a>
     <div class="nav-divider"></div>
+    <a href="#ch10" class="nav-item">CH10 テロップ設計</a>
+    <div class="nav-divider"></div>
     <a href="#ch07" class="nav-item">CH07 構成設計</a>
     <div class="nav-divider"></div>
     <a href="#ch08" class="nav-item">CH08 キャラクター</a>
     <div class="nav-divider"></div>
     <a href="#ch09" class="nav-item">CH09 撮影基本</a>
-    <div class="nav-divider"></div>
-    <a href="#ch10" class="nav-item">CH10 テロップ設計</a>
   </div>
 </nav>
 
@@ -2650,6 +2650,378 @@ code, .dm-mono {
   <div style="position:absolute;right:0;top:0;bottom:0;width:3px;background:var(--grad-main)"></div>
 </div>
 <!-- CH07 構成設計 -->
+<section id="ch10" style="padding-top:52px" class="sec">
+  <div class="container">
+
+    <!-- ===== 動画構成の作り方 ===== -->
+    <div style="margin-bottom:60px">
+
+      <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.4em;color:var(--accent);display:block;margin-bottom:10px;border-bottom:1.5px solid var(--accent);padding-bottom:4px;width:fit-content">SECTION 00</span>
+      <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(24px,4vw,36px);color:var(--text);letter-spacing:.03em;margin-bottom:24px;line-height:1.2">動画の構成を、<br>超シンプルに理解する</h3>
+
+      <!-- 動画とは何か -->
+      <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);border-left:2px solid var(--accent);padding:20px 24px;margin-bottom:28px">
+        <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.22em;color:var(--accent);margin-bottom:10px">FIRST PRINCIPLE</p>
+        <p style="font-size:18px;font-weight:700;color:var(--text);line-height:1.7">動画とは「物語」です。</p>
+        <p style="font-size:14px;color:var(--text-2);line-height:2;margin-top:10px">
+          写真を並べたものは「物語」ではありません。ただの「静止画の連続」です。<br>
+          動画が動画である理由は、<strong style="color:var(--text)">時間の流れの中にストーリーがある</strong>から。
+        </p>
+      </div>
+
+      <!-- 主語と述語 -->
+      <h4 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:18px;color:var(--text);letter-spacing:.04em;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">物語の基本：主語と述語</h4>
+      <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:16px">
+        どんな物語にも「<strong style="color:var(--text)">誰が（主語）</strong>」「<strong style="color:var(--text)">どうした（述語）</strong>」があります。これだけで話が成立します。
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+        <div style="background:var(--bg-3);border:1px solid var(--border-2);padding:18px 20px;text-align:center">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--text-3);margin-bottom:10px">情報だけ（面白くない）</div>
+          <p style="font-size:15px;color:var(--text-2);line-height:2">「社長が」「泣いた」</p>
+          <p style="font-size:12px;color:var(--text-3);margin-top:8px">伝わる。でも刺さらない。</p>
+        </div>
+        <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.25);padding:18px 20px;text-align:center">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--accent);margin-bottom:10px">装飾あり（面白い）</div>
+          <p style="font-size:15px;color:var(--text);line-height:2">「3日間眠れなかった社長が」<br>「声を上げて泣いた」</p>
+          <p style="font-size:12px;color:var(--text-2);margin-top:8px">感情が動く。記憶に残る。</p>
+        </div>
+      </div>
+
+      <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:28px">
+        「3日間眠れなかった」という<strong style="color:var(--text)">装飾（形容詞）</strong>が加わることで、感情が生まれます。<br>
+        構成の仕事は「<strong style="color:var(--text)">主語と述語（骨格）を決め、装飾（肉）をどこに入れるか</strong>を設計すること」です。
+      </p>
+
+      <!-- 動画の構造図 -->
+      <div style="background:var(--bg-3);border:1px solid var(--border);padding:22px 24px;margin-bottom:36px">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--text-3);margin-bottom:16px">STRUCTURE</p>
+        <div style="display:flex;gap:0;align-items:stretch;flex-wrap:wrap">
+          <div style="flex:1;min-width:140px;padding:16px 18px;background:rgba(232,68,68,.08);border:1px solid rgba(232,68,68,.2);text-align:center">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--danger);margin-bottom:6px">主語 ＋ 述語</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.7">動画の「骨格」<br>これがないと物語にならない</div>
+          </div>
+          <div style="width:1px;background:var(--border)"></div>
+          <div style="flex:1;min-width:140px;padding:16px 18px;background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);text-align:center">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--accent);margin-bottom:6px">装飾（形容詞）</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.7">動画の「面白さ」<br>感情・エンタメ・没入感</div>
+          </div>
+          <div style="width:1px;background:var(--border)"></div>
+          <div style="flex:1;min-width:140px;padding:16px 18px;background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.18);text-align:center">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--ok);margin-bottom:6px">＝ 構成</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.7">「何をどこに置くか」を<br>設計すること</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- テロップ入力の正しい順番 -->
+      <h4 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:18px;color:var(--text);letter-spacing:.04em;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border)">テロップを入れる「正しい順番」</h4>
+      <p style="font-size:13px;color:var(--text-2);line-height:1.9;margin-bottom:20px">テロップ作業の質は、この順番を守っているかどうかで大きく変わります。</p>
+
+      <!-- NG -->
+      <div style="background:rgba(232,68,68,.05);border:1px solid rgba(232,68,68,.2);border-left:2px solid var(--danger);padding:16px 20px;margin-bottom:20px">
+        <p style="font-size:11px;color:var(--danger);font-weight:700;letter-spacing:.1em;margin-bottom:10px">✗ NG — よくある間違い</p>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--text-2)">
+          <div>❌ 字幕から先に入れている</div>
+          <div>❌ 「強そうな言葉」に強調テロップをとりあえず入れている</div>
+        </div>
+      </div>
+
+      <!-- 正しい順番 STEP -->
+      <div style="display:flex;flex-direction:column;gap:8px">
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
+          <div style="background:rgba(232,68,68,.12);border:1px solid rgba(232,68,68,.3);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--danger)">STEP<br>1</span>
+          </div>
+          <div style="padding:14px 18px;background:rgba(232,68,68,.06);border:1px solid rgba(232,68,68,.15);border-left:none">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--danger);margin-bottom:4px">主語テロップ（強調テロップ）</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.85">「誰が・何が」の部分。一番目立つ強調テロップで表示する。<br>これが動画の「骨」になる。ここが弱いと何の話かわからなくなる。</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
+          <div style="background:rgba(232,197,71,.15);border:1px solid rgba(232,197,71,.35);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--warn)">STEP<br>2</span>
+          </div>
+          <div style="padding:14px 18px;background:rgba(232,197,71,.05);border:1px solid rgba(232,197,71,.15);border-left:none">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--warn);margin-bottom:4px">述語テロップ</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.85">
+              「どうした」の部分。2パターンある：<br>
+              <span style="color:var(--text)">• 言葉だけで伝わる</span> → 強調テロップ<br>
+              <span style="color:var(--text)">• 言葉だけでは難しい</span> → 補足説明テロップ（言い換えや解説を添える）
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
+          <div style="background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--cyan)">STEP<br>3</span>
+          </div>
+          <div style="padding:14px 18px;background:rgba(14,165,233,.05);border:1px solid rgba(14,165,233,.12);border-left:none">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--cyan);margin-bottom:4px">装飾テロップ ＆ インサート</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.85">
+              主語・述語を盛り上げるための「肉付け」。<br>
+              考え方：「<strong style="color:var(--text)">この場面を盛り上げるには、何があればいいか？</strong>」<br>
+              感情を強化するインサート映像・効果テロップ・BGMチェンジなどを入れる。
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
+          <div style="background:rgba(100,116,139,.12);border:1px solid rgba(100,116,139,.25);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--text-2)">STEP<br>4</span>
+          </div>
+          <div style="padding:14px 18px;background:var(--bg-3);border:1px solid var(--border);border-left:none">
+            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--text);margin-bottom:4px">字幕テロップ（最後）</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.85">
+              字幕はあくまで「おまけ」。<strong style="color:var(--text)">「音声がなくても・字幕がなくても伝わる」</strong>状態を作ってから入れる。<br>
+              STEP1〜3がなければ、字幕だけ入れても意味がない。字幕は補足であり、軸ではない。
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="sec-divider" style="margin-bottom:48px">
+
+    <!-- テロップ比較ビジュアル -->
+    <div style="margin:28px 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)">
+
+      <!-- NG例 -->
+      <div style="background:var(--bg-3);padding:24px">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--danger);margin-bottom:16px">✗ BAD — 読みにくい</div>
+        <div style="background:var(--bg);padding:20px;border-radius:2px;min-height:100px;display:flex;align-items:flex-end">
+          <div style="font-size:14px;color:white;text-shadow:none;line-height:1.9;letter-spacing:0">彼は昨日の夜遅くまで一人で作業を続けていた。誰も助けてくれないまま、気づけばもう3時になっていた。</div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--text-2);line-height:2">
+          ❌ 長すぎて読めない<br>
+          ❌ 縁取りなし（映像に溶ける）<br>
+          ❌ 改行が意味で切れていない
+        </div>
+      </div>
+
+      <!-- OK例 -->
+      <div style="background:var(--bg-3);padding:24px">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--ok);margin-bottom:16px">✓ GOOD — 脳に届く</div>
+        <div style="background:var(--bg);padding:20px;border-radius:2px;min-height:100px;display:flex;align-items:flex-end">
+          <div style="line-height:2.1">
+            <div style="font-size:16px;color:white;text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;letter-spacing:.06em;font-weight:700">誰も、助けてくれない。</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.7);text-shadow:-1px -1px 0 #000, 1px 1px 0 #000;letter-spacing:.04em">気づけば、もう3時だった。</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--text-2);line-height:2">
+          ✅ 1テロップ = 1感情<br>
+          ✅ 縁取り（どんな映像でも読める）<br>
+          ✅ 感情で改行されている
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="card-grid">
+      <div class="card">
+        <span class="badge badge-blue" style="margin-bottom:12px">OP テロップ</span>
+        <div class="card-title">人物紹介テロップ</div>
+        <div class="card-body">名前・役職・年齢などを表示する。画面の左下か右下に置くのが基本。<br><br><strong>鉄則：</strong>画面に出た瞬間に全部読めるテキスト量にする。3秒以内に読めない量は多すぎ。</div>
+      </div>
+      <div class="card">
+        <span class="badge badge-warm" style="margin-bottom:12px">場面転換テロップ</span>
+        <div class="card-title">チャプター・日時テロップ</div>
+        <div class="card-body">「3日後」「翌朝」「2024年 東京」など、場面が変わったことを知らせるテロップ。シンプルに、映像の邪魔にならない場所に置く。</div>
+      </div>
+      <div class="card">
+        <span class="badge badge-red" style="margin-bottom:12px">補足テロップ</span>
+        <div class="card-title">発言補足・強調テロップ</div>
+        <div class="card-body">話している人の言葉を文字で補強する。話している内容を全部テロップにしない——一番大事な一文だけを抜き出す。<br><br><strong>鉄則：</strong>話者が話すタイミングと表示タイミングを合わせる。ズレると気持ち悪い。</div>
+      </div>
+    </div>
+
+    <hr class="sec-divider">
+
+    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)">図解テロップの種類</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>種類</th><th>用途</th><th>使いどき</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>フローチャート</strong></td><td>手順やプロセスを図で見せる</td><td>「〇〇の手順を説明する」場面</td></tr>
+          <tr><td><strong>比較テーブル</strong></td><td>2つ以上の選択肢・違いを整理する</td><td>「AとBの違い」を示す場面</td></tr>
+          <tr><td><strong>数字インフォグラフィック</strong></td><td>データや事実を図・数字で見せる</td><td>統計・規模感を伝える場面</td></tr>
+          <tr><td><strong>マップ・図解</strong></td><td>場所・構造・関係性を図で見せる</td><td>場所・組織・関係性を示す場面</td></tr>
+          <tr><td><strong>テキストオンリー</strong></td><td>一番大事な発言を大きく強調する</td><td>最重要メッセージを際立たせる場面</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- ── テロップ細則 ── -->
+    <div style="margin-top:48px">
+      <h3 style="font-size:13px;font-family:'DM Mono',monospace;letter-spacing:.18em;color:var(--accent);font-weight:500;border-left:2px solid var(--accent);padding-left:12px;margin-bottom:20px">テロップ細則</h3>
+    </div>
+    <div style="overflow-x:auto;margin-bottom:40px">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;line-height:1.7">
+        <thead>
+          <tr style="border-bottom:1px solid var(--accent)">
+            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">#</th>
+            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">ルール</th>
+            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">01</td>
+            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">13文字ルール</td>
+            <td style="padding:11px 14px;color:var(--text-2)">人間が一気に読める文字数は約13文字が限界。それ以上は改行または分割する</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">02</td>
+            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">シャドウ（影）を強化</td>
+            <td style="padding:11px 14px;color:var(--text-2)">白文字が背景に溶けないよう、シャドウを強めて視認性を確保</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">03</td>
+            <td style="padding:11px 14px;color:var(--red);font-weight:600;white-space:nowrap">アウトラインは使わない</td>
+            <td style="padding:11px 14px;color:var(--text-2)">シネマティック編集では境界線（アウトライン）は最もダサくなる原因。代わりにシャドウ or 背景</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">04</td>
+            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">文字間隔</td>
+            <td style="padding:11px 14px;color:var(--text-2)">デフォルトから200程度に広げるとオシャレ感が出る</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">05</td>
+            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">テロップアニメーション</td>
+            <td style="padding:11px 14px;color:var(--text-2)">10秒に1回程度が目安。やりすぎるとうるさい。アナリティクスで検証する</td>
+          </tr>
+          <tr>
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">06</td>
+            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">視聴者層別サイズ調整</td>
+            <td style="padding:11px 14px;color:var(--text-2)">40〜60代が多い場合はベースの文字サイズを上げる（老眼対策）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── CTA設計 ── -->
+    <h3 style="font-size:13px;font-family:'DM Mono',monospace;letter-spacing:.18em;color:var(--accent);font-weight:500;border-left:2px solid var(--accent);padding-left:12px;margin-bottom:20px">CTA（行動喚起）設計</h3>
+    <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:20px">脳科学的に正しいCTAの位置は「海馬（5段階目）に到達した後」。感情→論理→記憶→行動の順。</p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;line-height:1.7">
+        <thead>
+          <tr style="border-bottom:1px solid var(--accent)">
+            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">#</th>
+            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">要素</th>
+            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">01</td>
+            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">配置の原則</td>
+            <td style="padding:11px 14px;color:var(--text-2)">動画末尾にまとめるのではなく、各章の節目で自然に挟む</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">02</td>
+            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">選択肢の提示</td>
+            <td style="padding:11px 14px;color:var(--text-2)">「○○したい方」「○○に興味がある方」など、複数の選択肢を提示して視聴者が自分に当てはまるものを選べる形</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">03</td>
+            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">ヘイトの向け先設計</td>
+            <td style="padding:11px 14px;color:var(--text-2)">フラストレーションを語った後、そのヘイトの向け先を視聴者本人ではなく「社会」「仕組み」に向け、解決策としてCTAを提示する</td>
+          </tr>
+          <tr>
+            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">04</td>
+            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">概要欄への誘導</td>
+            <td style="padding:11px 14px;color:var(--text-2)">「詳しくは概要欄のLINEへ」という導線を明確に</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="width:40px;height:1px;margin:0 auto 32px;background:var(--grad-main)"></div>
+  <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:32px;letter-spacing:.28em;margin-bottom:12px;
+    background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">EDIT MANUAL</div>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px">Editing As Brain Science. — 社会に中指を立てる作品を — © 2025</div>
+  <div style="display:flex;justify-content:center;gap:8px">
+    <span style="width:4px;height:4px;border-radius:50%;background:var(--danger);display:inline-block"></span>
+    <span style="width:4px;height:4px;border-radius:50%;background:var(--accent);display:inline-block"></span>
+    <span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);display:inline-block"></span>
+  </div>
+</footer>
+
+<script>
+// ── テーマ切り替え ──
+(function() {
+  const saved = localStorage.getItem('editmanual-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  // ボタン表示はDOMロード後に更新
+})();
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('editmanual-theme', next);
+  updateToggleUI(next);
+}
+
+function updateToggleUI(theme) {
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+  if (!icon || !label) return;
+  if (theme === 'light') {
+    icon.textContent = '🌙';
+    label.textContent = 'DARK';
+  } else {
+    icon.textContent = '☀️';
+    label.textContent = 'LIGHT';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  updateToggleUI(current);
+});
+
+function toggleBrain(trigger){
+  var card = trigger.closest('.brain-card');
+  card.classList.toggle('open');
+}
+function toggleWfDetail(btn){
+  var detail = btn.closest('.wf-detail');
+  detail.classList.toggle('open');
+}
+function toggleAcc(btn){
+  const item=btn.closest('.acc-item');
+  item.classList.toggle('open');
+}
+
+// sticky nav active state
+const sections=document.querySelectorAll('section[id]');
+const navItems=document.querySelectorAll('.nav-item');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navItems.forEach(n=>n.classList.remove('active'));
+      const active=document.querySelector(`.nav-item[href="#${e.target.id}"]`);
+      if(active)active.classList.add('active');
+    }
+  });
+},{threshold:0.15});
+sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
 <section id="ch07" style="padding-top:52px" class="sec-dark">
   
   <div class="container">
@@ -3254,375 +3626,3 @@ code, .dm-mono {
   <div style="position:absolute;right:0;top:0;bottom:0;width:3px;background:var(--grad-main)"></div>
 </div>
 <!-- CH10 テロップ設計 -->
-<section id="ch10" style="padding-top:52px" class="sec">
-  <div class="container">
-
-    <!-- ===== 動画構成の作り方 ===== -->
-    <div style="margin-bottom:60px">
-
-      <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.4em;color:var(--accent);display:block;margin-bottom:10px;border-bottom:1.5px solid var(--accent);padding-bottom:4px;width:fit-content">SECTION 00</span>
-      <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(24px,4vw,36px);color:var(--text);letter-spacing:.03em;margin-bottom:24px;line-height:1.2">動画の構成を、<br>超シンプルに理解する</h3>
-
-      <!-- 動画とは何か -->
-      <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);border-left:2px solid var(--accent);padding:20px 24px;margin-bottom:28px">
-        <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.22em;color:var(--accent);margin-bottom:10px">FIRST PRINCIPLE</p>
-        <p style="font-size:18px;font-weight:700;color:var(--text);line-height:1.7">動画とは「物語」です。</p>
-        <p style="font-size:14px;color:var(--text-2);line-height:2;margin-top:10px">
-          写真を並べたものは「物語」ではありません。ただの「静止画の連続」です。<br>
-          動画が動画である理由は、<strong style="color:var(--text)">時間の流れの中にストーリーがある</strong>から。
-        </p>
-      </div>
-
-      <!-- 主語と述語 -->
-      <h4 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:18px;color:var(--text);letter-spacing:.04em;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">物語の基本：主語と述語</h4>
-      <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:16px">
-        どんな物語にも「<strong style="color:var(--text)">誰が（主語）</strong>」「<strong style="color:var(--text)">どうした（述語）</strong>」があります。これだけで話が成立します。
-      </p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
-        <div style="background:var(--bg-3);border:1px solid var(--border-2);padding:18px 20px;text-align:center">
-          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--text-3);margin-bottom:10px">情報だけ（面白くない）</div>
-          <p style="font-size:15px;color:var(--text-2);line-height:2">「社長が」「泣いた」</p>
-          <p style="font-size:12px;color:var(--text-3);margin-top:8px">伝わる。でも刺さらない。</p>
-        </div>
-        <div style="background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.25);padding:18px 20px;text-align:center">
-          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--accent);margin-bottom:10px">装飾あり（面白い）</div>
-          <p style="font-size:15px;color:var(--text);line-height:2">「3日間眠れなかった社長が」<br>「声を上げて泣いた」</p>
-          <p style="font-size:12px;color:var(--text-2);margin-top:8px">感情が動く。記憶に残る。</p>
-        </div>
-      </div>
-
-      <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:28px">
-        「3日間眠れなかった」という<strong style="color:var(--text)">装飾（形容詞）</strong>が加わることで、感情が生まれます。<br>
-        構成の仕事は「<strong style="color:var(--text)">主語と述語（骨格）を決め、装飾（肉）をどこに入れるか</strong>を設計すること」です。
-      </p>
-
-      <!-- 動画の構造図 -->
-      <div style="background:var(--bg-3);border:1px solid var(--border);padding:22px 24px;margin-bottom:36px">
-        <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--text-3);margin-bottom:16px">STRUCTURE</p>
-        <div style="display:flex;gap:0;align-items:stretch;flex-wrap:wrap">
-          <div style="flex:1;min-width:140px;padding:16px 18px;background:rgba(232,68,68,.08);border:1px solid rgba(232,68,68,.2);text-align:center">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--danger);margin-bottom:6px">主語 ＋ 述語</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.7">動画の「骨格」<br>これがないと物語にならない</div>
-          </div>
-          <div style="width:1px;background:var(--border)"></div>
-          <div style="flex:1;min-width:140px;padding:16px 18px;background:rgba(232,197,71,.06);border:1px solid rgba(232,197,71,.2);text-align:center">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--accent);margin-bottom:6px">装飾（形容詞）</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.7">動画の「面白さ」<br>感情・エンタメ・没入感</div>
-          </div>
-          <div style="width:1px;background:var(--border)"></div>
-          <div style="flex:1;min-width:140px;padding:16px 18px;background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.18);text-align:center">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--ok);margin-bottom:6px">＝ 構成</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.7">「何をどこに置くか」を<br>設計すること</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- テロップ入力の正しい順番 -->
-      <h4 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:18px;color:var(--text);letter-spacing:.04em;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border)">テロップを入れる「正しい順番」</h4>
-      <p style="font-size:13px;color:var(--text-2);line-height:1.9;margin-bottom:20px">テロップ作業の質は、この順番を守っているかどうかで大きく変わります。</p>
-
-      <!-- NG -->
-      <div style="background:rgba(232,68,68,.05);border:1px solid rgba(232,68,68,.2);border-left:2px solid var(--danger);padding:16px 20px;margin-bottom:20px">
-        <p style="font-size:11px;color:var(--danger);font-weight:700;letter-spacing:.1em;margin-bottom:10px">✗ NG — よくある間違い</p>
-        <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--text-2)">
-          <div>❌ 字幕から先に入れている</div>
-          <div>❌ 「強そうな言葉」に強調テロップをとりあえず入れている</div>
-        </div>
-      </div>
-
-      <!-- 正しい順番 STEP -->
-      <div style="display:flex;flex-direction:column;gap:8px">
-
-        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
-          <div style="background:rgba(232,68,68,.12);border:1px solid rgba(232,68,68,.3);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--danger)">STEP<br>1</span>
-          </div>
-          <div style="padding:14px 18px;background:rgba(232,68,68,.06);border:1px solid rgba(232,68,68,.15);border-left:none">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--danger);margin-bottom:4px">主語テロップ（強調テロップ）</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.85">「誰が・何が」の部分。一番目立つ強調テロップで表示する。<br>これが動画の「骨」になる。ここが弱いと何の話かわからなくなる。</div>
-          </div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
-          <div style="background:rgba(232,197,71,.15);border:1px solid rgba(232,197,71,.35);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--warn)">STEP<br>2</span>
-          </div>
-          <div style="padding:14px 18px;background:rgba(232,197,71,.05);border:1px solid rgba(232,197,71,.15);border-left:none">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--warn);margin-bottom:4px">述語テロップ</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.85">
-              「どうした」の部分。2パターンある：<br>
-              <span style="color:var(--text)">• 言葉だけで伝わる</span> → 強調テロップ<br>
-              <span style="color:var(--text)">• 言葉だけでは難しい</span> → 補足説明テロップ（言い換えや解説を添える）
-            </div>
-          </div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
-          <div style="background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--cyan)">STEP<br>3</span>
-          </div>
-          <div style="padding:14px 18px;background:rgba(14,165,233,.05);border:1px solid rgba(14,165,233,.12);border-left:none">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--cyan);margin-bottom:4px">装飾テロップ ＆ インサート</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.85">
-              主語・述語を盛り上げるための「肉付け」。<br>
-              考え方：「<strong style="color:var(--text)">この場面を盛り上げるには、何があればいいか？</strong>」<br>
-              感情を強化するインサート映像・効果テロップ・BGMチェンジなどを入れる。
-            </div>
-          </div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:auto 1fr;gap:0">
-          <div style="background:rgba(100,116,139,.12);border:1px solid rgba(100,116,139,.25);width:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <span style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:11px;color:var(--text-2)">STEP<br>4</span>
-          </div>
-          <div style="padding:14px 18px;background:var(--bg-3);border:1px solid var(--border);border-left:none">
-            <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:15px;color:var(--text);margin-bottom:4px">字幕テロップ（最後）</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.85">
-              字幕はあくまで「おまけ」。<strong style="color:var(--text)">「音声がなくても・字幕がなくても伝わる」</strong>状態を作ってから入れる。<br>
-              STEP1〜3がなければ、字幕だけ入れても意味がない。字幕は補足であり、軸ではない。
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <hr class="sec-divider" style="margin-bottom:48px">
-
-    <!-- テロップ比較ビジュアル -->
-    <div style="margin:28px 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)">
-
-      <!-- NG例 -->
-      <div style="background:var(--bg-3);padding:24px">
-        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--danger);margin-bottom:16px">✗ BAD — 読みにくい</div>
-        <div style="background:var(--bg);padding:20px;border-radius:2px;min-height:100px;display:flex;align-items:flex-end">
-          <div style="font-size:14px;color:white;text-shadow:none;line-height:1.9;letter-spacing:0">彼は昨日の夜遅くまで一人で作業を続けていた。誰も助けてくれないまま、気づけばもう3時になっていた。</div>
-        </div>
-        <div style="margin-top:12px;font-size:11px;color:var(--text-2);line-height:2">
-          ❌ 長すぎて読めない<br>
-          ❌ 縁取りなし（映像に溶ける）<br>
-          ❌ 改行が意味で切れていない
-        </div>
-      </div>
-
-      <!-- OK例 -->
-      <div style="background:var(--bg-3);padding:24px">
-        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--ok);margin-bottom:16px">✓ GOOD — 脳に届く</div>
-        <div style="background:var(--bg);padding:20px;border-radius:2px;min-height:100px;display:flex;align-items:flex-end">
-          <div style="line-height:2.1">
-            <div style="font-size:16px;color:white;text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;letter-spacing:.06em;font-weight:700">誰も、助けてくれない。</div>
-            <div style="font-size:13px;color:rgba(255,255,255,0.7);text-shadow:-1px -1px 0 #000, 1px 1px 0 #000;letter-spacing:.04em">気づけば、もう3時だった。</div>
-          </div>
-        </div>
-        <div style="margin-top:12px;font-size:11px;color:var(--text-2);line-height:2">
-          ✅ 1テロップ = 1感情<br>
-          ✅ 縁取り（どんな映像でも読める）<br>
-          ✅ 感情で改行されている
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="card-grid">
-      <div class="card">
-        <span class="badge badge-blue" style="margin-bottom:12px">OP テロップ</span>
-        <div class="card-title">人物紹介テロップ</div>
-        <div class="card-body">名前・役職・年齢などを表示する。画面の左下か右下に置くのが基本。<br><br><strong>鉄則：</strong>画面に出た瞬間に全部読めるテキスト量にする。3秒以内に読めない量は多すぎ。</div>
-      </div>
-      <div class="card">
-        <span class="badge badge-warm" style="margin-bottom:12px">場面転換テロップ</span>
-        <div class="card-title">チャプター・日時テロップ</div>
-        <div class="card-body">「3日後」「翌朝」「2024年 東京」など、場面が変わったことを知らせるテロップ。シンプルに、映像の邪魔にならない場所に置く。</div>
-      </div>
-      <div class="card">
-        <span class="badge badge-red" style="margin-bottom:12px">補足テロップ</span>
-        <div class="card-title">発言補足・強調テロップ</div>
-        <div class="card-body">話している人の言葉を文字で補強する。話している内容を全部テロップにしない——一番大事な一文だけを抜き出す。<br><br><strong>鉄則：</strong>話者が話すタイミングと表示タイミングを合わせる。ズレると気持ち悪い。</div>
-      </div>
-    </div>
-
-    <hr class="sec-divider">
-
-    <h3 style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(20px,3.5vw,28px);color:var(--text);letter-spacing:.04em;margin:32px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)">図解テロップの種類</h3>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>種類</th><th>用途</th><th>使いどき</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>フローチャート</strong></td><td>手順やプロセスを図で見せる</td><td>「〇〇の手順を説明する」場面</td></tr>
-          <tr><td><strong>比較テーブル</strong></td><td>2つ以上の選択肢・違いを整理する</td><td>「AとBの違い」を示す場面</td></tr>
-          <tr><td><strong>数字インフォグラフィック</strong></td><td>データや事実を図・数字で見せる</td><td>統計・規模感を伝える場面</td></tr>
-          <tr><td><strong>マップ・図解</strong></td><td>場所・構造・関係性を図で見せる</td><td>場所・組織・関係性を示す場面</td></tr>
-          <tr><td><strong>テキストオンリー</strong></td><td>一番大事な発言を大きく強調する</td><td>最重要メッセージを際立たせる場面</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-
-    <!-- ── テロップ細則 ── -->
-    <div style="margin-top:48px">
-      <h3 style="font-size:13px;font-family:'DM Mono',monospace;letter-spacing:.18em;color:var(--accent);font-weight:500;border-left:2px solid var(--accent);padding-left:12px;margin-bottom:20px">テロップ細則</h3>
-    </div>
-    <div style="overflow-x:auto;margin-bottom:40px">
-      <table style="width:100%;border-collapse:collapse;font-size:13px;line-height:1.7">
-        <thead>
-          <tr style="border-bottom:1px solid var(--accent)">
-            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">#</th>
-            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">ルール</th>
-            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--border)">
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">01</td>
-            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">13文字ルール</td>
-            <td style="padding:11px 14px;color:var(--text-2)">人間が一気に読める文字数は約13文字が限界。それ以上は改行または分割する</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">02</td>
-            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">シャドウ（影）を強化</td>
-            <td style="padding:11px 14px;color:var(--text-2)">白文字が背景に溶けないよう、シャドウを強めて視認性を確保</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border)">
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">03</td>
-            <td style="padding:11px 14px;color:var(--red);font-weight:600;white-space:nowrap">アウトラインは使わない</td>
-            <td style="padding:11px 14px;color:var(--text-2)">シネマティック編集では境界線（アウトライン）は最もダサくなる原因。代わりにシャドウ or 背景</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">04</td>
-            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">文字間隔</td>
-            <td style="padding:11px 14px;color:var(--text-2)">デフォルトから200程度に広げるとオシャレ感が出る</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border)">
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">05</td>
-            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">テロップアニメーション</td>
-            <td style="padding:11px 14px;color:var(--text-2)">10秒に1回程度が目安。やりすぎるとうるさい。アナリティクスで検証する</td>
-          </tr>
-          <tr>
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">06</td>
-            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">視聴者層別サイズ調整</td>
-            <td style="padding:11px 14px;color:var(--text-2)">40〜60代が多い場合はベースの文字サイズを上げる（老眼対策）</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ── CTA設計 ── -->
-    <h3 style="font-size:13px;font-family:'DM Mono',monospace;letter-spacing:.18em;color:var(--accent);font-weight:500;border-left:2px solid var(--accent);padding-left:12px;margin-bottom:20px">CTA（行動喚起）設計</h3>
-    <p style="font-size:14px;color:var(--text-2);line-height:2;margin-bottom:20px">脳科学的に正しいCTAの位置は「海馬（5段階目）に到達した後」。感情→論理→記憶→行動の順。</p>
-    <div style="overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:13px;line-height:1.7">
-        <thead>
-          <tr style="border-bottom:1px solid var(--accent)">
-            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">#</th>
-            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">要素</th>
-            <th style="padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--accent);font-weight:500;text-align:left">内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--border)">
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">01</td>
-            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">配置の原則</td>
-            <td style="padding:11px 14px;color:var(--text-2)">動画末尾にまとめるのではなく、各章の節目で自然に挟む</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">02</td>
-            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">選択肢の提示</td>
-            <td style="padding:11px 14px;color:var(--text-2)">「○○したい方」「○○に興味がある方」など、複数の選択肢を提示して視聴者が自分に当てはまるものを選べる形</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border)">
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">03</td>
-            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">ヘイトの向け先設計</td>
-            <td style="padding:11px 14px;color:var(--text-2)">フラストレーションを語った後、そのヘイトの向け先を視聴者本人ではなく「社会」「仕組み」に向け、解決策としてCTAを提示する</td>
-          </tr>
-          <tr>
-            <td style="padding:11px 14px;color:var(--text-3);font-family:'DM Mono',monospace;font-size:11px">04</td>
-            <td style="padding:11px 14px;color:var(--text);font-weight:600;white-space:nowrap">概要欄への誘導</td>
-            <td style="padding:11px 14px;color:var(--text-2)">「詳しくは概要欄のLINEへ」という導線を明確に</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div style="width:40px;height:1px;margin:0 auto 32px;background:var(--grad-main)"></div>
-  <div style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:32px;letter-spacing:.28em;margin-bottom:12px;
-    background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">EDIT MANUAL</div>
-  <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px">Editing As Brain Science. — 社会に中指を立てる作品を — © 2025</div>
-  <div style="display:flex;justify-content:center;gap:8px">
-    <span style="width:4px;height:4px;border-radius:50%;background:var(--danger);display:inline-block"></span>
-    <span style="width:4px;height:4px;border-radius:50%;background:var(--accent);display:inline-block"></span>
-    <span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);display:inline-block"></span>
-  </div>
-</footer>
-
-<script>
-// ── テーマ切り替え ──
-(function() {
-  const saved = localStorage.getItem('editmanual-theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', saved);
-  // ボタン表示はDOMロード後に更新
-})();
-
-function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme') || 'dark';
-  const next = current === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('editmanual-theme', next);
-  updateToggleUI(next);
-}
-
-function updateToggleUI(theme) {
-  const icon = document.getElementById('themeIcon');
-  const label = document.getElementById('themeLabel');
-  if (!icon || !label) return;
-  if (theme === 'light') {
-    icon.textContent = '🌙';
-    label.textContent = 'DARK';
-  } else {
-    icon.textContent = '☀️';
-    label.textContent = 'LIGHT';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const current = document.documentElement.getAttribute('data-theme') || 'dark';
-  updateToggleUI(current);
-});
-
-function toggleBrain(trigger){
-  var card = trigger.closest('.brain-card');
-  card.classList.toggle('open');
-}
-function toggleWfDetail(btn){
-  var detail = btn.closest('.wf-detail');
-  detail.classList.toggle('open');
-}
-function toggleAcc(btn){
-  const item=btn.closest('.acc-item');
-  item.classList.toggle('open');
-}
-
-// sticky nav active state
-const sections=document.querySelectorAll('section[id]');
-const navItems=document.querySelectorAll('.nav-item');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      navItems.forEach(n=>n.classList.remove('active'));
-      const active=document.querySelector(`.nav-item[href="#${e.target.id}"]`);
-      if(active)active.classList.add('active');
-    }
-  });
-},{threshold:0.15});
-sections.forEach(s=>observer.observe(s));
-</script>
-</body>
-</html>
