@@ -118,7 +118,7 @@ body{
 .film-ver{
   font-family:'DM Mono',monospace;
   font-size:9px;color:var(--text-3);
-  margin-left:auto;border:1px solid var(--border-2);
+  border:1px solid var(--border-2);
   padding:3px 10px;border-radius:2px;background:var(--bg-3);letter-spacing:.1em;
 }
 
@@ -931,7 +931,8 @@ code, .dm-mono {
   cursor: pointer;
   transition: all .2s ease;
   white-space: nowrap;
-  margin-left: 12px;
+  margin-left: auto;
+  margin-right: 8px;
 }
 .theme-toggle:hover {
   border-color: var(--border-3);
@@ -978,6 +979,10 @@ code, .dm-mono {
   <div class="film-title-bar">
     <span class="film-brand">EDIT MANUAL</span>
     <span class="film-sub">Edit Manual</span>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle" aria-label="テーマ切り替え">
+      <span class="icon" id="themeIcon">☀️</span>
+      <span id="themeLabel">LIGHT</span>
+    </button>
     <span class="film-ver">v2.0 — 脳科学統合版</span>
   </div>
   <div class="perf-strip">
