@@ -1289,15 +1289,16 @@ code, .dm-mono {
   left: 56px;
   top: 0;
   bottom: 0;
-  width: 300px;
+  width: 280px;
   background: rgba(11,11,14,.98);
   border-right: 1px solid rgba(255,255,255,.09);
   border-left: 2px solid #e8c547;
   box-shadow: 12px 0 48px rgba(0,0,0,.7);
   pointer-events: none;
   opacity: 0;
+  visibility: hidden;
   transform: translateX(-16px);
-  transition: opacity .25s ease, transform .25s cubic-bezier(.4,0,.2,1);
+  transition: opacity .25s ease, transform .25s cubic-bezier(.4,0,.2,1), visibility .25s;
   z-index: 600;
   display: flex;
   flex-direction: column;
@@ -1305,6 +1306,7 @@ code, .dm-mono {
 }
 .sb-section:hover .sb-flyout {
   opacity: 1;
+  visibility: visible;
   transform: translateX(0);
   pointer-events: auto;
 }
@@ -1432,7 +1434,7 @@ code, .dm-mono {
 }
 
 /* ── 本文エリアのオフセット ── */
-body { padding-left: 56px; padding-bottom: 72px; }
+body { padding-left: 56px; padding-bottom: 72px; padding-top: 96px; }
 .film-header { left: 56px; }
 .nav { left: 56px; }
 @media(max-width:600px){
@@ -1453,7 +1455,7 @@ body { padding-left: 56px; padding-bottom: 72px; }
     <div class="sb-logo-mark">AK</div>
   </div>
 
-  <!-- 動画編集理論 -->
+  <!-- 脳科学 -->
   <div class="sb-section">
     <button class="sb-btn active" data-g="mindset" onclick="showGenre('mindset',this)">
       <span class="sb-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8c547" stroke-width="1.5" stroke-linecap="round"><path d="M9.5 2C7 2 5 4 5 6.5c0 .8.2 1.5.5 2.1C4 9.3 3 10.8 3 12.5 3 15 5 17 7.5 17H9v2.5a2.5 2.5 0 005 0V17h1.5C18 17 20 15 20 12.5c0-1.7-1-3.2-2.5-3.9.3-.6.5-1.3.5-2.1C18 4 16 2 13.5 2c-1.2 0-2.3.5-3.1 1.2C9.8 2.5 9.7 2 9.5 2z"/></svg></span>
@@ -1462,9 +1464,9 @@ body { padding-left: 56px; padding-bottom: 72px; }
     </button>
     <div class="sb-flyout">
       <div class="sb-fly-header">
-        <span class="sb-fly-kicker">GENRE 01 — 動画編集理論</span>
-        <div class="sb-fly-genre">動画編集理論</div>
-        <span class="sb-fly-sub">動画編集理論</span>
+        <span class="sb-fly-kicker">GENRE 01 — 脳科学</span>
+        <div class="sb-fly-genre">脳科学</div>
+        <span class="sb-fly-sub">脳科学</span>
         <p class="sb-fly-desc">編集を始める前に持つべき思考と、<br>動画が面白くなる脳科学的な仕組みを理解する。</p>
       </div>
       <div class="sb-fly-list">
@@ -1823,8 +1825,8 @@ function checkPassword() {
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:52px">
 
       <div onclick="enterGenre('mindset')" style="position:relative;overflow:hidden;border:1px solid rgba(232,197,71,.15);border-left:3px solid #e8c547;border-radius:3px;background:rgba(232,197,71,.03);padding:26px 22px;cursor:pointer;transition:all .22s;" onmouseover="this.style.background='rgba(232,197,71,.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(232,197,71,.03)';this.style.transform='translateY(0)'">
-        <div style="font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.26em;color:rgba(232,197,71,.45);margin-bottom:9px">GENRE 01 — 動画編集理論</div>
-        <div style="font-family:'Bebas Neue','Noto Sans JP',sans-serif;font-size:30px;color:#f0ece6;line-height:1;margin-bottom:9px">動画編集理論</div>
+        <div style="font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.26em;color:rgba(232,197,71,.45);margin-bottom:9px">GENRE 01 — 脳科学</div>
+        <div style="font-family:'Bebas Neue','Noto Sans JP',sans-serif;font-size:30px;color:#f0ece6;line-height:1;margin-bottom:9px">脳科学</div>
         <div style="font-size:11.5px;color:rgba(176,173,166,.55);line-height:1.7;margin-bottom:16px">脳科学と編集者の思考基盤</div>
         <div style="display:flex;gap:5px;flex-wrap:wrap">
           <span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.45);border:1px solid rgba(232,197,71,.15);padding:2px 8px;border-radius:2px">CH00</span>
@@ -1874,11 +1876,11 @@ function checkPassword() {
       <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.26em;color:rgba(232,197,71,.38);margin-bottom:20px">ALL CHAPTERS — 12 TOTAL</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px">
 
-        <a href="#ch00" onclick="showChPage('ch00');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH00</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">はじめに</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">動画編集理論</span></a>
+        <a href="#ch00" onclick="showChPage('ch00');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH00</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">はじめに</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">脳科学</span></a>
 
-        <a href="#ch01" onclick="showChPage('ch01');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH01</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">マインドセット</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">動画編集理論</span></a>
+        <a href="#ch01" onclick="showChPage('ch01');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH01</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">マインドセット</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">脳科学</span></a>
 
-        <a href="#ch02" onclick="showChPage('ch02-1');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH02</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">脳・30秒理論</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">動画編集理論</span></a>
+        <a href="#ch02" onclick="showChPage('ch02-1');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(232,197,71,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(232,197,71,.38);width:28px;flex-shrink:0">CH02</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">脳・30秒理論</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(232,197,71,.25);margin-left:auto">脳科学</span></a>
 
         <a href="#ch03" onclick="showChPage('ch03-1');return false;" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.04);background:transparent;text-decoration:none;transition:background .15s;border-radius:2px" onmouseover="this.style.background='rgba(220,80,60,.04)'" onmouseout="this.style.background='transparent'"><span style="font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(220,80,60,.45);width:28px;flex-shrink:0">CH03</span><span style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;color:rgba(240,236,230,.72)">タイムライン設計</span><span style="font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(220,80,60,.28);margin-left:auto">EDITING</span></a>
 
@@ -1962,7 +1964,7 @@ function checkPassword() {
   </style>
   <div class="nav-inner">
     <div class="nav-genre-wrap">
-      <a href="#" class="nav-item nav-genre active" data-genre="mindset" onclick="showGenre('mindset',this);return false;">動画編集理論</a>
+      <a href="#" class="nav-item nav-genre active" data-genre="mindset" onclick="showGenre('mindset',this);return false;">脳科学</a>
       <div class="nav-genre-dropdown">
         <a href="#ch00" class="nav-dropdown-item" onclick="showChPage('ch00');return false;">
           <span class="nav-dropdown-item-num">CH00</span><span class="nav-dropdown-item-title">はじめに</span>
@@ -2024,7 +2026,7 @@ function checkPassword() {
 </nav>
 
 <!-- HERO -->
-<!-- ジャンルヘッダー: 動画編集理論 -->
+<!-- ジャンルヘッダー: 脳科学 -->
 <div class="genre-content genre-header" data-genre="mindset" style="position:relative;overflow:hidden;min-height:260px;display:flex;align-items:flex-end;background:linear-gradient(135deg,rgba(13,13,15,1) 0%,rgba(18,16,10,1) 100%);">
   <div style="position:absolute;inset:0;background:repeating-linear-gradient(-52deg,transparent 0,transparent 40px,rgba(232,197,71,.02) 40px,rgba(232,197,71,.02) 41px);pointer-events:none;z-index:0"></div>
   <div style="position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,#e8c547 0%,rgba(232,197,71,.15) 70%,transparent 100%);z-index:1"></div>
@@ -2035,9 +2037,9 @@ function checkPassword() {
   </svg>
   <div class="container" style="position:relative;z-index:1;padding-bottom:36px;padding-top:44px;">
     <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.32em;color:rgba(232,197,71,.55);margin-bottom:10px;display:flex;align-items:center;gap:10px;">
-      <span style="display:inline-block;width:24px;height:1px;background:#e8c547;opacity:.5"></span>GENRE 01 — 動画編集理論
+      <span style="display:inline-block;width:24px;height:1px;background:#e8c547;opacity:.5"></span>GENRE 01 — 脳科学
     </div>
-    <div style="font-family:'Bebas Neue','Noto Sans JP',sans-serif;font-size:clamp(44px,6.5vw,80px);color:#f0ece6;line-height:.85;letter-spacing:.03em;margin-bottom:14px;text-shadow:0 0 60px rgba(232,197,71,.1)">動画編集理論</div>
+    <div style="font-family:'Bebas Neue','Noto Sans JP',sans-serif;font-size:clamp(44px,6.5vw,80px);color:#f0ece6;line-height:.85;letter-spacing:.03em;margin-bottom:14px;text-shadow:0 0 60px rgba(232,197,71,.1)">脳科学</div>
     <p style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:rgba(176,173,166,.58);line-height:1.85;margin-bottom:18px;max-width:440px;">編集を始める前に持つべき思考と、動画が面白くなる脳科学的な仕組みを理解する。</p>
     <div style="display:flex;gap:7px;flex-wrap:wrap;">
       <span style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;color:rgba(232,197,71,.55);border:1px solid rgba(232,197,71,.22);padding:4px 12px;border-radius:2px;background:rgba(232,197,71,.04);">CH00 はじめに</span>
@@ -2052,7 +2054,7 @@ function checkPassword() {
   <div class="container">
     <p style="font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:10px;letter-spacing:.38em;color:rgba(232,197,71,.5);margin-bottom:4px">CONTENTS</p>
     <div class="toc-grid">
-      <a href="#ch00" class="toc-card feat" data-num="00"><span class="toc-num">CH00</span><div class="toc-name">動画編集理論</div></a>
+      <a href="#ch00" class="toc-card feat" data-num="00"><span class="toc-num">CH00</span><div class="toc-name">脳科学</div></a>
       <a href="#ch01" class="toc-card feat" data-num="01"><span class="toc-num">CH01</span><div class="toc-name">脳の構造と30秒理論</div></a>
       <a href="#ch05" class="toc-card" data-num="05"><span class="toc-num">CH05</span><div class="toc-name">ワークフロー</div></a>
       <a href="#ch06" class="toc-card" data-num="06"><span class="toc-num">CH06</span><div class="toc-name">タイムライン</div></a>
@@ -2153,7 +2155,7 @@ function checkPassword() {
   <div style="position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;gap:6px">
     <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.28em;color:var(--accent-b,rgba(232,197,71,.7))">CHAPTER 01</span>
     <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(20px,3vw,34px);color:var(--text);letter-spacing:.06em;line-height:1.3;font-weight:700">マインドセット</span>
-    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--text-3)">動画編集理論</span>
+    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--text-3)">脳科学</span>
   </div>
   <!-- 右端のアクセントライン -->
   <div style="position:absolute;right:0;top:0;bottom:0;width:3px;background:var(--grad-main)"></div>
@@ -5703,8 +5705,11 @@ var APP = {
 
   // 初期化（DOMContentLoadedで呼ぶ）
   init: function() {
-    // 全data-page要素をinline styleで非表示
+    // 全data-page要素を非表示（sectionはpadding-topを保持）
     document.querySelectorAll('[data-page]').forEach(function(el) {
+      if (el.tagName === 'SECTION') {
+        el.style.paddingTop = '52px';
+      }
       el.style.display = 'none';
     });
     // サブページインジケーター追加
@@ -5714,6 +5719,9 @@ var APP = {
     // 認証済みかチェック
     var authed = sessionStorage.getItem('bf_auth') === '1';
     if (authed) {
+      // パスワード画面を確実に非表示
+      var pw = document.getElementById('password-screen');
+      if (pw) pw.style.display = 'none';
       // URLハッシュがあればそのページへ、なければTOCへ
       var hashPage = getPageFromHash();
       if (hashPage) {
@@ -5722,13 +5730,17 @@ var APP = {
         APP.showTOC();
       }
     }
-    // 未認証はパスワード画面のまま（デフォルト表示）
+    // 未認証はパスワード画面のまま
   },
 
   // TOCを表示
   showTOC: function() {
-    // CHページ非表示
+    // パスワード画面を確実に非表示
+    var pw = document.getElementById('password-screen');
+    if (pw) pw.style.display = 'none';
+    // CHページ非表示（sectionはpadding-topを保持）
     document.querySelectorAll('[data-page]').forEach(function(el) {
+      if (el.tagName === 'SECTION') el.style.paddingTop = '52px';
       el.style.display = 'none';
     });
     // ナビ類を非表示
@@ -5761,19 +5773,28 @@ var APP = {
       return;
     }
 
-    // TOCを非表示
+    // パスワード画面・TOCを確実に非表示
+    var pw = document.getElementById('password-screen');
+    if (pw) pw.style.display = 'none';
     var toc = document.getElementById('toc-screen');
     if (toc) toc.style.display = 'none';
 
-    // 全data-page非表示
+    // 全data-page非表示（sectionはpadding-topを保持）
     document.querySelectorAll('[data-page]').forEach(function(el) {
+      if (el.tagName === 'SECTION') el.style.paddingTop = '52px';
       el.style.display = 'none';
     });
 
     // 対象CHのdata-page要素を表示
     var targets = document.querySelectorAll('[data-page="' + chId + '"]');
+    console.log('showPage:', chId, 'targets:', targets.length);
     targets.forEach(function(el) {
+      // 全てのdisplay関連を強制リセット
+      el.removeAttribute('style');
       el.style.display = 'block';
+      el.style.opacity = '1';
+      el.style.visibility = 'visible';
+      if (el.tagName === 'SECTION') el.style.paddingTop = '52px';
     });
 
     currentPageIndex = idx;
@@ -5791,22 +5812,20 @@ var APP = {
     // ナビバー更新
     updateNavBar(idx);
 
-    // URLハッシュ更新
-    var baseId = chId.indexOf('-') >= 0 ? 'ch' + CH_LIST[idx].num : chId;
-    history.replaceState(null, '', '#' + baseId);
+    // URLハッシュ更新（cross-origin iframeでエラーになるのでtry/catch）
+    try {
+      var baseId = chId.indexOf('-') >= 0 ? 'ch' + CH_LIST[idx].num : chId;
+      history.replaceState(null, '', '#' + baseId);
+    } catch(e) {}
 
     // スクロールトップ
     window.scrollTo(0, 0);
 
-    // アニメーション
+    // アニメーションなし（確実に表示）
     targets.forEach(function(el) {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(10px)';
-      requestAnimationFrame(function() {
-        el.style.transition = 'opacity .28s ease, transform .28s ease';
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      });
+      el.style.transition = 'none';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
     });
 
     // film-headerのジャンルタグ更新
@@ -5960,7 +5979,7 @@ function buildChPanel() {
   if (!panel) return;
   panel.innerHTML = '';
   var genres = [
-    {key:'mindset',  label:'動画編集理論'},
+    {key:'mindset',  label:'脳科学'},
     {key:'design',   label:'設計'},
     {key:'editing',  label:'編集'},
     {key:'shooting', label:'撮影'},
@@ -6016,7 +6035,7 @@ function getPageFromHash() {
 }
 
 function updateFilmHeader(genre) {
-  var genreNames = {mindset:'動画編集理論', editing:'編集', design:'設計', shooting:'撮影'};
+  var genreNames = {mindset:'脳科学', editing:'編集', design:'設計', shooting:'撮影'};
   var tag = document.getElementById('film-genre-tag');
   if (!tag) {
     var bar = document.querySelector('.film-title-bar');
