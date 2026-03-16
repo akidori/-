@@ -1050,6 +1050,135 @@ code, .dm-mono {
 </head>
 <body>
 
+
+<!-- ══════════════════════════════════
+     パスワード画面
+══════════════════════════════════ -->
+<div id="password-screen" style="
+  position:fixed;inset:0;z-index:9999;
+  background:#0d0d0f;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:24px;
+">
+  <!-- フィルムノイズ背景 -->
+  <div style="position:absolute;inset:0;opacity:.03;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%221%22/></svg>');pointer-events:none"></div>
+
+  <!-- ロゴ -->
+  <div style="text-align:center;margin-bottom:56px;position:relative">
+    <div style="
+      font-family:'DM Mono',monospace;
+      font-size:9px;letter-spacing:.4em;
+      color:rgba(232,197,71,.6);
+      margin-bottom:20px;
+    ">BIRD FLIP INC. — INTERNAL</div>
+    <div style="
+      font-family:'Bebas Neue','Noto Sans JP',sans-serif;
+      font-size:clamp(52px,10vw,96px);
+      color:#f0ece6;
+      line-height:.85;
+      letter-spacing:.02em;
+    ">EDITING AS</div>
+    <div style="
+      font-family:'Bebas Neue','Noto Sans JP',sans-serif;
+      font-size:clamp(52px,10vw,96px);
+      color:#e8c547;
+      line-height:.85;
+      letter-spacing:.02em;
+      margin-bottom:24px;
+    ">BRAIN SCIENCE.</div>
+    <div style="
+      font-family:'DM Mono',monospace;
+      font-size:10px;letter-spacing:.18em;
+      color:rgba(240,236,230,.3);
+    ">EDIT MANUAL v2.0</div>
+  </div>
+
+  <!-- パスワードフォーム -->
+  <div style="width:100%;max-width:360px;position:relative">
+    <div style="
+      font-family:'DM Mono',monospace;
+      font-size:9px;letter-spacing:.22em;
+      color:rgba(232,197,71,.7);
+      margin-bottom:10px;
+    ">ACCESS CODE</div>
+    <div style="display:flex;gap:0;border:1px solid rgba(240,236,230,.15);border-radius:3px;overflow:hidden;background:rgba(255,255,255,.03)">
+      <input
+        id="pw-input"
+        type="password"
+        placeholder="パスワードを入力"
+        autocomplete="current-password"
+        onkeydown="if(event.key==='Enter')checkPassword()"
+        style="
+          flex:1;
+          background:transparent;
+          border:none;outline:none;
+          padding:14px 18px;
+          font-family:'DM Mono',monospace;
+          font-size:14px;
+          color:#f0ece6;
+          letter-spacing:.08em;
+        "
+      >
+      <button
+        onclick="checkPassword()"
+        style="
+          background:rgba(232,197,71,.12);
+          border:none;border-left:1px solid rgba(240,236,230,.1);
+          padding:0 20px;
+          cursor:pointer;
+          font-family:'DM Mono',monospace;
+          font-size:10px;letter-spacing:.14em;
+          color:rgba(232,197,71,.8);
+          transition:background .2s;
+          white-space:nowrap;
+        "
+        onmouseover="this.style.background='rgba(232,197,71,.22)'"
+        onmouseout="this.style.background='rgba(232,197,71,.12)'"
+      >ENTER →</button>
+    </div>
+    <div id="pw-error" style="
+      display:none;
+      font-family:'DM Mono',monospace;
+      font-size:10px;letter-spacing:.1em;
+      color:#e84444;
+      margin-top:10px;
+      padding-left:4px;
+    ">— ACCESS DENIED</div>
+  </div>
+</div>
+
+<!-- 認証JS -->
+<script>
+(function() {
+  // セッション中に認証済みならスキップ
+  if (sessionStorage.getItem('bf_auth') === '1') {
+    document.getElementById('password-screen').style.display = 'none';
+  }
+})();
+
+function checkPassword() {
+  var val = document.getElementById('pw-input').value;
+  // パスワードここで設定 ↓
+  var correct = 'birdflip';
+  if (val === correct) {
+    sessionStorage.setItem('bf_auth', '1');
+    var screen = document.getElementById('password-screen');
+    screen.style.transition = 'opacity .4s';
+    screen.style.opacity = '0';
+    setTimeout(function() { screen.style.display = 'none'; }, 400);
+  } else {
+    var err = document.getElementById('pw-error');
+    err.style.display = 'block';
+    var input = document.getElementById('pw-input');
+    input.style.borderColor = 'rgba(232,68,68,.5)';
+    input.value = '';
+    input.focus();
+    setTimeout(function() { err.style.display = 'none'; }, 2000);
+  }
+}
+</script>
+
 <!-- POSTERIZE FILTER -->
 <svg style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
   <defs>
