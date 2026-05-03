@@ -999,6 +999,278 @@ body {
   font-size: 14px; color: rgba(232,197,71,.6);
 }
 .scroll-top-btn.visible { opacity: 1; transform: translateY(0); }
+
+
+/* ─────────────────────────────────────
+   YOUTUBE-HOME LAYOUT (HOME SCREEN)
+───────────────────────────────────── */
+body:not([data-active]) [data-page="home"] { display: block; }
+
+#home { padding-top: 12px; padding-bottom: 96px; }
+.yt-home-wrap {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 28px 40px 60px;
+}
+@media (max-width: 768px) {
+  .yt-home-wrap { padding: 20px 16px 60px; }
+}
+
+/* Filter chips bar */
+.yt-chips {
+  display: flex; gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 18px; margin-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  scrollbar-width: none;
+}
+.yt-chips::-webkit-scrollbar { display: none; }
+.yt-chip {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px; font-weight: 600; letter-spacing: .04em;
+  color: var(--text-2);
+  background: var(--bg-3);
+  border: 1px solid var(--border-2);
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .15s;
+}
+.yt-chip:hover { background: var(--bg-4); color: var(--text); }
+.yt-chip.is-active {
+  background: var(--text); color: var(--text-inv);
+  border-color: var(--text);
+}
+
+/* Hero featured card */
+.yt-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 36px;
+  margin-bottom: 56px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+@media (max-width: 900px) { .yt-hero { grid-template-columns: 1fr; gap: 22px; } }
+.yt-hero-thumb {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-lg);
+  position: relative;
+  overflow: hidden;
+  background: var(--grad-main);
+  display: flex; align-items: flex-end;
+  padding: 28px 32px;
+  transition: transform .25s;
+}
+.yt-hero:hover .yt-hero-thumb { transform: translateY(-2px); }
+.yt-hero-thumb::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nh'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nh)' opacity='.16'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 28% 22%, rgba(255,255,255,.18), transparent 62%);
+  pointer-events: none;
+}
+.yt-hero-num {
+  position: relative;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 13vw, 180px);
+  letter-spacing: .02em;
+  line-height: .9;
+  color: rgba(13,13,15,.85);
+  margin-left: -6px;
+}
+.yt-hero-time {
+  position: absolute; right: 14px; bottom: 14px;
+  background: rgba(0,0,0,.72);
+  color: #fff;
+  font-size: 11px; font-weight: 700;
+  padding: 4px 8px; border-radius: 3px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .14em;
+}
+.yt-hero-info {
+  display: flex; flex-direction: column; justify-content: center;
+  padding-top: 4px;
+}
+.yt-hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: .2em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.yt-hero-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 2.8vw, 32px);
+  line-height: 1.3;
+  letter-spacing: .02em;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+.yt-hero-desc {
+  font-size: 14px; line-height: 1.85;
+  color: var(--text-2);
+  letter-spacing: .03em;
+  margin: 0 0 22px;
+}
+.yt-hero-btn {
+  align-self: flex-start;
+  background: var(--text);
+  color: var(--text-inv);
+  border: none;
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: opacity .15s;
+}
+.yt-hero-btn:hover { opacity: .82; }
+
+/* Shelves */
+.yt-shelf { margin-bottom: 48px; }
+.yt-shelf-head {
+  display: flex; align-items: baseline;
+  gap: 12px; flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.yt-shelf-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: .22em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.yt-shelf-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px; font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--text);
+  margin: 0;
+}
+.yt-shelf-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: .14em;
+  color: var(--text-3);
+}
+
+.yt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px 18px;
+}
+
+/* Card */
+.yt-card {
+  cursor: pointer;
+  display: flex; flex-direction: column;
+  gap: 12px;
+  text-decoration: none; color: inherit;
+  transition: transform .2s;
+}
+.yt-card:hover { transform: translateY(-2px); }
+.yt-thumb {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-lg);
+  position: relative; overflow: hidden;
+  background: var(--bg-4);
+  display: flex; align-items: flex-end;
+  padding: 14px 16px;
+}
+.yt-thumb::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)' opacity='.18'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 28% 22%, rgba(255,255,255,.18), transparent 62%);
+  pointer-events: none;
+}
+.yt-thumb[data-genre="mindset"]  { background: linear-gradient(135deg,#e8c547 0%,#e87c2a 100%); }
+.yt-thumb[data-genre="editing"]  { background: linear-gradient(135deg,#e84444 0%,#e87c2a 100%); }
+.yt-thumb[data-genre="design"]   { background: linear-gradient(135deg,#4a9eff 0%,#4ecdc4 100%); }
+.yt-thumb[data-genre="shooting"] { background: linear-gradient(135deg,#4ade80 0%,#4ecdc4 100%); }
+
+.yt-thumb-num {
+  position: relative;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: .9;
+  letter-spacing: .02em;
+  color: rgba(13,13,15,.85);
+  margin-left: -2px;
+}
+.yt-thumb-time {
+  position: absolute; right: 10px; bottom: 10px;
+  background: rgba(0,0,0,.72);
+  color: #fff;
+  font-size: 10.5px; font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .12em;
+  z-index: 1;
+}
+.yt-thumb-tag {
+  position: absolute; left: 10px; top: 10px;
+  background: rgba(13,13,15,.78);
+  color: var(--accent);
+  font-size: 9px; font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 2px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .18em;
+  z-index: 1;
+}
+
+.yt-card-body { padding: 0 2px; }
+.yt-card-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px; font-weight: 700;
+  line-height: 1.4;
+  color: var(--text);
+  margin: 0 0 6px;
+  letter-spacing: .02em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.yt-card-lead {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--text-2);
+  margin: 0 0 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  letter-spacing: .03em;
+}
+.yt-card-meta {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11.5px;
+  color: var(--text-3);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .04em;
+}
+.yt-card-meta .dot { opacity: .5; }
+
+/* Filter behavior */
+body[data-yt-filter="mindset"]  .yt-card[data-genre]:not([data-genre="mindset"]),
+body[data-yt-filter="editing"]  .yt-card[data-genre]:not([data-genre="editing"]),
+body[data-yt-filter="design"]   .yt-card[data-genre]:not([data-genre="design"]),
+body[data-yt-filter="shooting"] .yt-card[data-genre]:not([data-genre="shooting"]) { display: none; }
+body[data-yt-filter="mindset"]  .yt-shelf[data-genre]:not([data-genre="mindset"]),
+body[data-yt-filter="editing"]  .yt-shelf[data-genre]:not([data-genre="editing"]),
+body[data-yt-filter="design"]   .yt-shelf[data-genre]:not([data-genre="design"]),
+body[data-yt-filter="shooting"] .yt-shelf[data-genre]:not([data-genre="shooting"]) { display: none; }
+body[data-yt-filter="editing"]  .yt-hero,
+body[data-yt-filter="design"]   .yt-hero,
+body[data-yt-filter="shooting"] .yt-hero { display: none; }
 </style>
 </head>
 <body>
@@ -1027,6 +1299,13 @@ body {
   <div onclick="showTOC()" style="padding:18px 16px 14px;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer;flex-shrink:0">
     <div style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.08em;color:#f0ece6;line-height:1">EDIT MANUAL</div>
     <div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.12em;color:rgba(232,197,71,.35);margin-top:3px">CREAT A.K</div>
+  </div>
+  <!-- ホーム -->
+  <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+    <div id="sb-home" onclick="showTOC()" style="display:flex;align-items:center;gap:12px;padding:9px 16px;cursor:pointer;transition:background .15s;border-left:2px solid transparent" onmouseover="if(this.style.borderLeftColor!=='rgb(232, 197, 71)')this.style.background='rgba(255,255,255,.04)'" onmouseout="if(this.style.borderLeftColor!=='rgb(232, 197, 71)')this.style.background='transparent'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(240,236,230,.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+      <span style="font-size:12.5px;font-weight:700;color:#f0ece6;letter-spacing:.04em">ホーム</span>
+    </div>
   </div>
   <!-- ジャンル + CH一覧 -->
   <div style="flex:1;padding:8px 0">
@@ -1132,62 +1411,210 @@ body {
 </nav>
 
 
-<div id="toc-screen" style="position:fixed;inset:0;z-index:9998;background:#0d0d0f;display:none;flex-direction:column;overflow-y:auto;padding:80px 40px 40px">
-  <div style="max-width:960px;margin:0 auto;width:100%">
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,56px);color:#f0ece6;letter-spacing:.04em;margin-bottom:8px">EDIT MANUAL</div>
-    <div style="font-size:12px;letter-spacing:.18em;color:rgba(232,197,71,.5);margin-bottom:48px;font-family:'DM Mono',monospace">CREAT A.K — v2.0 脳科学総合版</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px">
-      <div onclick="showPage('ch00')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#e8c547;opacity:.6;margin-bottom:8px">CH00</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">はじめに</div>
+<section id="home" data-page="home">
+  <div class="yt-home-wrap">
+
+    <!-- フィルターチップ -->
+    <div class="yt-chips" id="yt-chips">
+      <button type="button" class="yt-chip is-active" data-filter="all"      onclick="ytFilter('all', this)">すべて</button>
+      <button type="button" class="yt-chip"           data-filter="mindset"  onclick="ytFilter('mindset', this)">脳科学・マインドセット</button>
+      <button type="button" class="yt-chip"           data-filter="editing"  onclick="ytFilter('editing', this)">編集</button>
+      <button type="button" class="yt-chip"           data-filter="design"   onclick="ytFilter('design', this)">構成・設計</button>
+      <button type="button" class="yt-chip"           data-filter="shooting" onclick="ytFilter('shooting', this)">撮影</button>
+    </div>
+
+    <!-- フィーチャー（CH00 はじめに） -->
+    <div class="yt-hero" data-genre="mindset" onclick="showPage('ch00')">
+      <div class="yt-hero-thumb" data-genre="mindset">
+        <span class="yt-hero-num">CH00</span>
+        <span class="yt-hero-time">3 MIN</span>
       </div>
-      <div onclick="showPage('ch01')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#e8c547;opacity:.6;margin-bottom:8px">CH01</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">マインドセット</div>
-      </div>
-      <div onclick="showPage('ch02')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#e8c547;opacity:.6;margin-bottom:8px">CH02</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">脳・30秒理論</div>
-      </div>
-      <div onclick="showPage('ch03')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#dc503c;opacity:.6;margin-bottom:8px">CH03</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">タイムライン設計</div>
-      </div>
-      <div onclick="showPage('ch04')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#dc503c;opacity:.6;margin-bottom:8px">CH04</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">インサート設計</div>
-      </div>
-      <div onclick="showPage('ch05')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#0ea5e9;opacity:.6;margin-bottom:8px">CH05</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">ワークフロー</div>
-      </div>
-      <div onclick="showPage('ch06')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#dc503c;opacity:.6;margin-bottom:8px">CH06</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">動画構成の作り方</div>
-      </div>
-      <div onclick="showPage('ch07')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#dc503c;opacity:.6;margin-bottom:8px">CH07</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">テロップ設計</div>
-      </div>
-      <div onclick="showPage('ch08')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#dc503c;opacity:.6;margin-bottom:8px">CH08</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">MAとBGM</div>
-      </div>
-      <div onclick="showPage('ch09')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#dc503c;opacity:.6;margin-bottom:8px">CH09</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">チェックリスト</div>
-      </div>
-      <div onclick="showPage('ch10')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#0ea5e9;opacity:.6;margin-bottom:8px">CH10</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">キャラクター設計</div>
-      </div>
-      <div onclick="showPage('ch11')" style="background:#111114;padding:20px;cursor:pointer;border:1px solid rgba(255,255,255,.05);transition:all .2s" onmouseover="this.style.background='#1a1a1e'" onmouseout="this.style.background='#111114'">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:#50c850;opacity:.6;margin-bottom:8px">CH11</div>
-        <div style="font-size:14px;font-weight:700;color:#f0ece6;line-height:1.3">撮影基本</div>
+      <div class="yt-hero-info">
+        <div class="yt-hero-eyebrow">FEATURED — はじめに</div>
+        <h2 class="yt-hero-title">外部流入時代に必要なのは、<br>圧倒的なコンテンツクオリティ</h2>
+        <p class="yt-hero-desc">日本のYouTubeで「外から人を連れてくるのはNG」と言われてきた理由、韓国・アメリカで外部流入を活用できるチャンネルが何をやっているか、このマニュアルが目指すゴール。</p>
+        <button type="button" class="yt-hero-btn">読み始める →</button>
       </div>
     </div>
+
+    <!-- PART 1: 脳科学・マインドセット -->
+    <div class="yt-shelf" data-genre="mindset">
+      <div class="yt-shelf-head">
+        <span class="yt-shelf-eyebrow">PART 1</span>
+        <h3 class="yt-shelf-title">脳科学・マインドセット</h3>
+        <span class="yt-shelf-count">2 CH</span>
+      </div>
+      <div class="yt-grid">
+        <div class="yt-card" data-genre="mindset" onclick="showPage('ch01')">
+          <div class="yt-thumb" data-genre="mindset">
+            <span class="yt-thumb-tag">MINDSET</span>
+            <span class="yt-thumb-num">01</span>
+            <span class="yt-thumb-time">7 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">マインドセット</h4>
+            <p class="yt-card-lead">構成の前提設計、アバン（冒頭）の最重要パート</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 01</span></div>
+          </div>
+        </div>
+        <div class="yt-card" data-genre="mindset" onclick="showPage('ch02')">
+          <div class="yt-thumb" data-genre="mindset">
+            <span class="yt-thumb-tag">CORE</span>
+            <span class="yt-thumb-num">02</span>
+            <span class="yt-thumb-time">15 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">脳・30秒理論</h4>
+            <p class="yt-card-lead">脳の5段階処理／各部位の作り方／30秒理論／エンタメ化</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 02</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 2: 編集 -->
+    <div class="yt-shelf" data-genre="editing">
+      <div class="yt-shelf-head">
+        <span class="yt-shelf-eyebrow">PART 2</span>
+        <h3 class="yt-shelf-title">編集</h3>
+        <span class="yt-shelf-count">6 CH</span>
+      </div>
+      <div class="yt-grid">
+        <div class="yt-card" data-genre="editing" onclick="showPage('ch03')">
+          <div class="yt-thumb" data-genre="editing">
+            <span class="yt-thumb-tag">TIMELINE</span>
+            <span class="yt-thumb-num">03</span>
+            <span class="yt-thumb-time">10 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">タイムライン設計</h4>
+            <p class="yt-card-lead">トラック構造マップ／3秒ルールで映像の見え方を変える</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 03</span></div>
+          </div>
+        </div>
+        <div class="yt-card" data-genre="editing" onclick="showPage('ch04')">
+          <div class="yt-thumb" data-genre="editing">
+            <span class="yt-thumb-tag">INSERT</span>
+            <span class="yt-thumb-num">04</span>
+            <span class="yt-thumb-time">10 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">インサート設計</h4>
+            <p class="yt-card-lead">インサートで物語を作り、世界観を操作する</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 04</span></div>
+          </div>
+        </div>
+        <div class="yt-card" data-genre="editing" onclick="showPage('ch06')">
+          <div class="yt-thumb" data-genre="editing">
+            <span class="yt-thumb-tag">STRUCTURE</span>
+            <span class="yt-thumb-num">06</span>
+            <span class="yt-thumb-time">5 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">動画構成の作り方</h4>
+            <p class="yt-card-lead">動画の構成を超シンプルに理解する</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 06</span></div>
+          </div>
+        </div>
+        <div class="yt-card" data-genre="editing" onclick="showPage('ch07')">
+          <div class="yt-thumb" data-genre="editing">
+            <span class="yt-thumb-tag">TELOP</span>
+            <span class="yt-thumb-num">07</span>
+            <span class="yt-thumb-time">6 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">テロップ設計</h4>
+            <p class="yt-card-lead">図解テロップの種類／CTA設計</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 07</span></div>
+          </div>
+        </div>
+        <div class="yt-card" data-genre="editing" onclick="showPage('ch08')">
+          <div class="yt-thumb" data-genre="editing">
+            <span class="yt-thumb-tag">SOUND</span>
+            <span class="yt-thumb-num">08</span>
+            <span class="yt-thumb-time">3 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">MAとBGM</h4>
+            <p class="yt-card-lead">音は感情の下地／引き算の音設計</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 08</span></div>
+          </div>
+        </div>
+        <div class="yt-card" data-genre="editing" onclick="showPage('ch09')">
+          <div class="yt-thumb" data-genre="editing">
+            <span class="yt-thumb-tag">CHECK</span>
+            <span class="yt-thumb-num">09</span>
+            <span class="yt-thumb-time">4 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">チェックリスト</h4>
+            <p class="yt-card-lead">構成チェックリスト／書き出し設定／セルフレビュー3視点</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 09</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 3: 構成・設計 -->
+    <div class="yt-shelf" data-genre="design">
+      <div class="yt-shelf-head">
+        <span class="yt-shelf-eyebrow">PART 3</span>
+        <h3 class="yt-shelf-title">構成・設計</h3>
+        <span class="yt-shelf-count">2 CH</span>
+      </div>
+      <div class="yt-grid">
+        <div class="yt-card" data-genre="design" onclick="showPage('ch05')">
+          <div class="yt-thumb" data-genre="design">
+            <span class="yt-thumb-tag">FLOW</span>
+            <span class="yt-thumb-num">05</span>
+            <span class="yt-thumb-time">10 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">ワークフロー</h4>
+            <p class="yt-card-lead">1語ゴール設計／構成プロット2種／感情曲線とブリッジ</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 05</span></div>
+          </div>
+        </div>
+        <div class="yt-card" data-genre="design" onclick="showPage('ch10')">
+          <div class="yt-thumb" data-genre="design">
+            <span class="yt-thumb-tag">CHARACTER</span>
+            <span class="yt-thumb-num">10</span>
+            <span class="yt-thumb-time">4 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">キャラクター設計</h4>
+            <p class="yt-card-lead">弱さの設計／キャラクターの引き出し方（インタビュー設計）</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 10</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 4: 撮影 -->
+    <div class="yt-shelf" data-genre="shooting">
+      <div class="yt-shelf-head">
+        <span class="yt-shelf-eyebrow">PART 4</span>
+        <h3 class="yt-shelf-title">撮影</h3>
+        <span class="yt-shelf-count">1 CH</span>
+      </div>
+      <div class="yt-grid">
+        <div class="yt-card" data-genre="shooting" onclick="showPage('ch11')">
+          <div class="yt-thumb" data-genre="shooting">
+            <span class="yt-thumb-tag">SHOOT</span>
+            <span class="yt-thumb-num">11</span>
+            <span class="yt-thumb-time">4 MIN</span>
+          </div>
+          <div class="yt-card-body">
+            <h4 class="yt-card-title">撮影基本</h4>
+            <p class="yt-card-lead">撮影の5W1H／距離と角度の意味／応用テクニック</p>
+            <div class="yt-card-meta"><span>CREAT A.K</span><span class="dot">·</span><span>CH 11</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
 
 <section id="ch00" data-page="ch00" style="position:relative;z-index:1;padding-top:52px;padding-left:10px;padding-right:10px;padding-bottom:80px;min-height:100vh">
@@ -3744,11 +4171,11 @@ function showPage(chId) {
   var idx = CH_LIST.findIndex(function(c){ return c.id === chId; });
   if (idx < 0) return;
 
-  var toc = document.getElementById('toc-screen');
-  if (toc) toc.style.display = 'none';
-
   document.body.setAttribute('data-active', chId);
   currentPageIndex = idx;
+  if (window.location.hash !== '#' + chId) {
+    try { history.replaceState(null, '', '#' + chId); } catch(e){}
+  }
 
   var nb = document.getElementById('ch-nav-bar');
   if (nb) nb.style.display = 'flex';
@@ -3767,9 +4194,36 @@ function showTOC() {
   document.body.removeAttribute('data-active');
   var nb = document.getElementById('ch-nav-bar');
   if (nb) nb.style.display = 'none';
-  var toc = document.getElementById('toc-screen');
-  if (toc) { toc.style.display = 'flex'; }
   currentPageIndex = -1;
+  if (window.location.hash) {
+    try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch(e){}
+  }
+  document.querySelectorAll('.sb-ch-item').forEach(function(el){
+    el.classList.remove('active');
+    el.style.borderLeftColor = 'transparent';
+    el.style.background = 'transparent';
+    var lab = el.querySelector('span:last-child');
+    if (lab) lab.style.color = 'rgba(176,173,166,.65)';
+  });
+  var sbHome = document.getElementById('sb-home');
+  if (sbHome) {
+    sbHome.style.background = 'rgba(232,197,71,.06)';
+    sbHome.style.borderLeftColor = '#e8c547';
+  }
+  document.querySelectorAll('.nav-genre').forEach(function(el){
+    el.style.color = 'rgba(176,173,166,.5)';
+  });
+  window.scrollTo(0, 0);
+}
+
+function ytFilter(name, btn) {
+  if (name === 'all') {
+    document.body.removeAttribute('data-yt-filter');
+  } else {
+    document.body.setAttribute('data-yt-filter', name);
+  }
+  document.querySelectorAll('.yt-chip').forEach(function(el){ el.classList.remove('is-active'); });
+  if (btn) btn.classList.add('is-active');
 }
 
 function filterGenre(genre) {
@@ -3901,8 +4355,14 @@ function updateSidebarActive(chId) {
     el.classList.remove('active');
     el.style.borderLeftColor = 'transparent';
     el.style.background = 'transparent';
-    el.querySelector('span:last-child').style.color = 'rgba(176,173,166,.65)';
+    var lab = el.querySelector('span:last-child');
+    if (lab) lab.style.color = 'rgba(176,173,166,.65)';
   });
+  var sbHome = document.getElementById('sb-home');
+  if (sbHome) {
+    sbHome.style.background = 'transparent';
+    sbHome.style.borderLeftColor = 'transparent';
+  }
   var active = document.getElementById('sb-' + chId);
   if (active) {
     active.classList.add('active');
@@ -3912,19 +4372,32 @@ function updateSidebarActive(chId) {
   }
 }
 
+function routeFromHash() {
+  var h = (window.location.hash || '').replace('#', '');
+  if (h && CH_LIST.some(function(c){ return c.id === h; })) {
+    showPage(h);
+  } else {
+    showTOC();
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   // 認証チェック
   var authed = sessionStorage.getItem('bf_auth') === '1';
   if (authed) {
     var pw = document.getElementById('password-screen');
     if (pw) pw.style.display = 'none';
-    showTOC();
+    routeFromHash();
   }
   // パスワード画面でEnterキー
   var input = document.getElementById('pw-input');
   if (input) {
     setTimeout(function() { input.focus(); }, 100);
   }
+});
+
+window.addEventListener('hashchange', function(){
+  if (sessionStorage.getItem('bf_auth') === '1') routeFromHash();
 });
 
 
